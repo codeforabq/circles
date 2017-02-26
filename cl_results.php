@@ -31,6 +31,10 @@
 	}
 	$HowManyChildren = $HowMany13to20s + $HowManyLessThan13s;
 
+	$cl_county = $cl_input["cl_county"];
+	$cl_state = $cl_input["cl_state"];
+	$cl_city = $cl_input["cl_city"];
+
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -158,9 +162,8 @@
 					Children -
 
 					<?php
-					$cl_county = $cl_input["cl_county"];
-					$cl_state = $cl_input["cl_state"];
-					echo $cl_input["cl_city"] . ", " . $cl_county . ", " . $cl_state;
+
+					echo $cl_city . ", " . $cl_county . ", " . $cl_state;
 
 					$people_count = $HowManyAdults + $HowManyChildren;
 
@@ -271,7 +274,7 @@
 				$current_column = ceil($TotalEarnedIncome / $fpig2avg);
 				$current_hourly = ($TotalIncome) / (40 * 4);
 				if($current_column > 19) {
-					echo "<span style=\"color:red;\" class=\"p2\">A total montly income of $" . number_format($TotalIncome, 2) . " falls outside the data available for <br>subsidy calculations and graphing for a " . $people_count . " person home in " . $cl_input["cl_city"] . ", " . $cl_county . ", " . $cl_state . "!<br><br></span>";
+					echo "<span style=\"color:red;\" class=\"p2\">A total montly income of $" . number_format($TotalIncome, 2) . " falls outside the data available for <br>subsidy calculations and graphing for a " . $people_count . " person home in " . $cl_city . ", " . $cl_county . ", " . $cl_state . "!<br><br></span>";
 					exit;
 				}
 				?>
