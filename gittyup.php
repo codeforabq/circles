@@ -22,7 +22,7 @@ class GittyUp{
 		$password = $values['gitpass'];
 		//Pulling to the staging server
 		chdir( WEB_ROOT );
-		$command = 'git pull '.$username.':'.$password.'/github.com/codeforabq/circles.git';
+		$command = 'git pull https://'.$username.':'.$password.'@github.com/codeforabq/circles.git master';
 		$stuff = exec( $command );
 		return $stuff;
 		
