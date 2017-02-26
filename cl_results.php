@@ -2,6 +2,7 @@
 <html>
 	<?php
 	include("config.php");
+
 	require_once('functions.php');
 	LogPostValuesToLog($_POST['this_log'], 'cl_income');
 

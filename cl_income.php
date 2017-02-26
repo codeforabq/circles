@@ -1,20 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
-	// Generate JSON object for data submitting from previous form (cl_expenses)
-	$output = array();
-	$output['cl_expenses'] = array();
 
-	foreach($_POST as $key => $value) {
-		$output['cl_expenses'][$key] = $value;
-	}
-	$output_json = json_encode($output);
+	require_once('functions.php');
+	LogPostValuesToLog($_POST['this_log'], 'cl_expenses');
 
-	// Write to file on server (get rid of this!)
-	$this_log = $_POST['this_log'];
-	$trace_file = fopen($this_log, "a") or die("Unable to open trace file!");
-	fwrite($trace_file, $output_json);
-	fclose($trace_file);
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
