@@ -11,7 +11,7 @@ function LogPostValuesToLog($filename, $previous_form) {
 	$output_json = json_encode($output);
 
 	// Write to file on server (get rid of this!)
-	$trace_file = fopen($filename, "a") or die("Unable to open trace file!");
+	$trace_file = fopen($filename, "a") or die("Unable to open trace file at $filename!");
 	fwrite($trace_file, $output_json);
 	fclose($trace_file);
 }
