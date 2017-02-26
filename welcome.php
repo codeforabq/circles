@@ -144,7 +144,12 @@
 
 				<span class="h2" style="font-weight: bold; font-size: 16px;">Planning Tools while we wait for the fix in benefits. . .</span><br><br>
 
-				Assistance programs use complex formulas, making it virtually impossible for a family with low income, or a community volunteer, or even most human service staff, to determine in advance how much assistance people will have once they earn more income. This is a problem because as people earn more income, they disproportionately lose work supports like childcare assistance, health insurance, etc., which undermines progress out of poverty. The result dismantles the survival budget while people are trying to move closer to their stability budget.
+				Assistance programs use complex formulas, making it virtually impossible for a family with low income, or a
+				community volunteer, or even most human service staff, to determine in advance how much assistance people
+				will have once they earn more income. This is a problem because as people earn more income, they
+				disproportionately lose work supports like childcare assistance, health insurance, etc., which undermines
+				progress out of poverty. The result dismantles the survival budget while people are trying to move closer to
+				their stability budget.
 				<br><br>
 				We need to take the mystery out of the equation so that people can adequately plan for losses in subsidies
 				as they generate more earned income. (Just as important, of course, the cliff effect must be removed and
@@ -161,7 +166,8 @@
 			</div>
 
 			<div style="float: left; width=100%; padding-left: 44%;">
-				<button type="reset" onclick="location.href='disclaimer.php'" style="border: none; color: white; padding: 7px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 15px; font-weight: bold; background-color: rgb(0, 163, 222); font-family: Helvetica, Arial; background-image: none;">
+				<button type="reset" onclick="location.href='disclaimer.php'"
+						  style="border: none; color: white; padding: 7px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 15px; font-weight: bold; background-color: rgb(0, 163, 222); font-family: Helvetica, Arial; background-image: none;">
 					Continue ->
 				</button>
 			</div>
@@ -180,19 +186,23 @@
 					</td>
 				</tr>
 				<tr>
-					<td valign="middle" align="center">Powered with&nbsp;<img src="images/heart.png" height="10" width="10" alt="Love is all that matters"> &nbsp;by VinceCo<br><br></td>
+					<td valign="middle" align="center">Powered with&nbsp;<img src="images/heart.png" height="10" width="10"
+																								 alt="Love is all that matters"> &nbsp;by
+						VinceCo<br><br></td>
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
 						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-							<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
+							<img alt="Creative Commons License" style="border-width:0"
+								  src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
 						</a>
 						<br/>This work is licensed under a
 						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
 							Attribution-NonCommercial-ShareAlike 4.0 International License
 						</a>.
 						<br><br>
-						HighCharts graphing is licensed separately from this work and is solely for use by Circles USA within the scope of this work.<br>
+						HighCharts graphing is licensed separately from this work and is solely for use by Circles USA within
+						the scope of this work.<br>
 						Please contact HighCharts directly at
 						<a href="http://www.highcharts.com/contact-email">http://www.highcharts.com/contact-email</a>
 						to obtain your own license.<br><br>

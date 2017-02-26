@@ -1,1 +1,1 @@
-<?php require 'welcome.php';?>
+<?php require 'welcome.php'; ?>
