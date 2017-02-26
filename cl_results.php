@@ -2,8 +2,14 @@
 <html>
 	<?php
 	include("config.php");
-	require_once 'functions.php';
+	require_once('functions.php');
 	LogPostValuesToLog($_POST['this_log'], 'cl_income');
+
+	// Everything that was collected in the previous forms
+	$cl_input = array();
+	foreach($_POST as $key => $value) {
+		$cl_input[$key] = $value;
+	}
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -129,8 +135,8 @@
 				<p class="p1">
 					<br>Circle Leader
 					<?php
-					if(isset($_POST['cl_adults'])) {
-						$HowManyAdults = $_POST['cl_adults'];
+					if(isset($cl_input['cl_adults'])) {
+						$HowManyAdults = $cl_input['cl_adults'];
 					} else {
 						$HowManyAdults = 0;
 					}
@@ -138,13 +144,13 @@
 					?>
 					Adults with
 					<?php
-					if(isset($_POST['cl_thirteen_to_twenty'])) {
-						$HowMany13to20s = $_POST['cl_thirteen_to_twenty'];
+					if(isset($cl_input['cl_thirteen_to_twenty'])) {
+						$HowMany13to20s = $cl_input['cl_thirteen_to_twenty'];
 					} else {
 						$HowMany13to20s = 0;
 					}
-					if(isset($_POST['cl_less_than_thirteen'])) {
-						$HowManyLessThan13s = $_POST['cl_less_than_thirteen'];
+					if(isset($cl_input['cl_less_than_thirteen'])) {
+						$HowManyLessThan13s = $cl_input['cl_less_than_thirteen'];
 					} else {
 						$HowManyLessThan13s = 0;
 					}
@@ -155,9 +161,9 @@
 					Children -
 
 					<?php
-					$cl_county = $_POST["cl_county"];
-					$cl_state = $_POST["cl_state"];
-					echo $_POST["cl_city"] . ", " . $cl_county . ", " . $cl_state;
+					$cl_county = $cl_input["cl_county"];
+					$cl_state = $cl_input["cl_state"];
+					echo $cl_input["cl_city"] . ", " . $cl_county . ", " . $cl_state;
 
 					$people_count = $HowManyAdults + $HowManyChildren;
 
@@ -176,9 +182,9 @@
 
 					$plotpoints = 19;
 
-					$TotalEarnedIncome = str_replace(',', '', $_POST["TotalEarned"]);
+					$TotalEarnedIncome = str_replace(',', '', $cl_input["TotalEarned"]);
 					//echo "<br><br>TOTALEARNEDINCOME == ".$TotalEarnedIncome."<br><br>";
-					$TotalUnEarnedIncome = str_replace(',', '', $_POST["TotalUnEarned"]);
+					$TotalUnEarnedIncome = str_replace(',', '', $cl_input["TotalUnEarned"]);
 					//echo "TOTALUNEARNEDINCOME == ".$TotalUnEarnedIncome."<br><br>";
 					$TotalIncome = $TotalEarnedIncome + $TotalUnEarnedIncome;
 
@@ -193,8 +199,8 @@
 					$hud_row = $hud_result->fetch_assoc();
 					$HUD_Income_Limit = $hud_row[$hudi];
 
-					if(isset($_POST['Bedrooms'])) {
-						$cl_Bedrooms = $_POST['Bedrooms'];
+					if(isset($cl_input['Bedrooms'])) {
+						$cl_Bedrooms = $cl_input['Bedrooms'];
 					} else {
 						$cl_Bedrooms = 0;
 					}
@@ -217,33 +223,33 @@
 						$HUD_Room_Adjusment = 1.6;
 					}
 
-					if(isset($_POST['AlimonyReceived'])) {
-						$MAGI_AlimonyReceived = $_POST['AlimonyReceived'];
+					if(isset($cl_input['AlimonyReceived'])) {
+						$MAGI_AlimonyReceived = $cl_input['AlimonyReceived'];
 					} else {
 						$MAGI_AlimonyReceived = 0;
 					}
-					if(isset($_POST['MonthlyGifts'])) {
-						$MAGI_MonthlyGifts = $_POST['MonthlyGifts'];
+					if(isset($cl_input['MonthlyGifts'])) {
+						$MAGI_MonthlyGifts = $cl_input['MonthlyGifts'];
 					} else {
 						$MAGI_MonthlyGifts = 0;
 					}
-					if(isset($_POST['ArmedForcesAmount'])) {
-						$MAGI_ArmedForcesAmount = $_POST['ArmedForcesAmount'];
+					if(isset($cl_input['ArmedForcesAmount'])) {
+						$MAGI_ArmedForcesAmount = $cl_input['ArmedForcesAmount'];
 					} else {
 						$MAGI_ArmedForcesAmount = 0;
 					}
-					if(isset($_POST['cl_family_college_students'])) {
-						$Student_Count = $_POST['cl_family_college_students'];
+					if(isset($cl_input['cl_family_college_students'])) {
+						$Student_Count = $cl_input['cl_family_college_students'];
 					} else {
 						$Student_Count = 0;
 					}
-					if(isset($_POST['GasAmount'])) {
-						$cl_GasAmount = $_POST['GasAmount'];
+					if(isset($cl_input['GasAmount'])) {
+						$cl_GasAmount = $cl_input['GasAmount'];
 					} else {
 						$cl_GasAmount = 0;
 					}
-					if(isset($_POST['ElectricAmount'])) {
-						$cl_ElectricAmount = $_POST['ElectricAmount'];
+					if(isset($cl_input['ElectricAmount'])) {
+						$cl_ElectricAmount = $cl_input['ElectricAmount'];
 					} else {
 						$cl_ElectricAmount = 0;
 					}
@@ -268,7 +274,7 @@
 				$current_column = ceil($TotalEarnedIncome / $fpig2avg);
 				$current_hourly = ($TotalIncome) / (40 * 4);
 				if($current_column > 19) {
-					echo "<span style=\"color:red;\" class=\"p2\">A total montly income of $" . number_format($TotalIncome, 2) . " falls outside the data available for <br>subsidy calculations and graphing for a " . $people_count . " person home in " . $_POST["cl_city"] . ", " . $cl_county . ", " . $cl_state . "!<br><br></span>";
+					echo "<span style=\"color:red;\" class=\"p2\">A total montly income of $" . number_format($TotalIncome, 2) . " falls outside the data available for <br>subsidy calculations and graphing for a " . $people_count . " person home in " . $cl_input["cl_city"] . ", " . $cl_county . ", " . $cl_state . "!<br><br></span>";
 					exit;
 				}
 				?>
@@ -643,23 +649,23 @@
 						}
 
 						$EID_Count = 0;
-						if(isset($_POST['Butt_Section8'])) {
-							if($_POST['Butt_Section8'] == "Yes") {
+						if(isset($cl_input['Butt_Section8'])) {
+							if($cl_input['Butt_Section8'] == "Yes") {
 								$EID_Count++;
 							}
 						}
-						if(isset($_POST['EIupemp'])) {
-							if($_POST['EIupemp'] == "Yes") {
+						if(isset($cl_input['EIupemp'])) {
+							if($cl_input['EIupemp'] == "Yes") {
 								$EID_Count++;
 							}
 						}
-						if(isset($_POST['EIupPart'])) {
-							if($_POST['EIupPart'] == "Yes") {
+						if(isset($cl_input['EIupPart'])) {
+							if($cl_input['EIupPart'] == "Yes") {
 								$EID_Count++;
 							}
 						}
-						if(isset($_POST['IncomeUp'])) {
-							if($_POST['IncomeUp'] == "Yes") {
+						if(isset($cl_input['IncomeUp'])) {
+							if($cl_input['IncomeUp'] == "Yes") {
 								$EID_Count++;
 							}
 						}
@@ -810,7 +816,7 @@
 </html>
 <script type="text/javascript">
 	$(function() {
-		var MonthEXP = <?php Print($_POST['PostMonthlyExpenses']); ?>;
+		var MonthEXP = <?php Print($cl_input['PostMonthlyExpenses']); ?>;
 		var fpig1 = Math.round(<?php Print($fpig100); ?>);
 		var fpig2 = Math.round(<?php Print($fpig200); ?>);
 		var curr = <?php Print($current_line); ?>;
