@@ -1,13 +1,13 @@
 <?PHP
 
+include_once( 'config.php' );
+
 class GittyUp{
 	
 	public function get_form( $message ){
 		
 		$out[] = '<form method="post">';
-		$out[] = '<label>Git Username</label>';
-		$out[] = '<input type="text" name="gituser"/>';
-		$out[] = '<label>Git Password</label>';
+		$out[] = '<label>Password</label>';
 		$out[] = '<input type="password" name="gitpass"/>';
 		$out[] = '<button type="submit">Pull Git Repo</button>';
 		$out[] = '</form>';
@@ -18,13 +18,15 @@ class GittyUp{
 	
 	public function set_form( $values ){
 		
-		$username = $values['gituser'];
 		$password = $values['gitpass'];
-		//Pulling to the staging server
-		chdir( WEB_ROOT );
-		$command = 'git pull https://'.$username.':'.$password.'@github.com/codeforabq/circles.git master';
-		$stuff = exec( $command );
-		return $stuff;
+		if( $password == PULL_PASSWORD ){
+			chdir( WEB_ROOT );
+			$command = 'git pull https://github.com/codeforabq/circles.git master';
+			$stuff = exec( $command );
+			return $stuff;
+		}else{
+			return 'NO';
+		}
 		
 	}
 	
@@ -38,6 +40,7 @@ class GittyUp{
 	</head>
 	<body>
 		<?PHP
+			include("header.php");
 			$g = new GittyUp;
 			$message = '';
 			if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
