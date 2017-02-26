@@ -4,19 +4,18 @@
  * @link   http://www.phpied.com/rgb-color-parser-in-javascript/
  * @license Use it if you like it
  */
- 
-(function ( global ) {
- 
-	function RGBColor(color_string)
-	{
+
+(function(global) {
+
+	function RGBColor(color_string) {
 		this.ok = false;
 
 		// strip any leading #
-		if (color_string.charAt(0) == '#') { // remove # if any
-			color_string = color_string.substr(1,6);
+		if(color_string.charAt(0) == '#') { // remove # if any
+			color_string = color_string.substr(1, 6);
 		}
 
-		color_string = color_string.replace(/ /g,'');
+		color_string = color_string.replace(/ /g, '');
 		color_string = color_string.toLowerCase();
 
 		// before getting into regexps, try simple matches
@@ -78,8 +77,8 @@
 			greenyellow: 'adff2f',
 			honeydew: 'f0fff0',
 			hotpink: 'ff69b4',
-			indianred : 'cd5c5c',
-			indigo : '4b0082',
+			indianred: 'cd5c5c',
+			indigo: '4b0082',
 			ivory: 'fffff0',
 			khaki: 'f0e68c',
 			lavender: 'e6e6fa',
@@ -166,8 +165,8 @@
 			yellow: 'ffff00',
 			yellowgreen: '9acd32'
 		};
-		for (var key in simple_colors) {
-			if (color_string == key) {
+		for(var key in simple_colors) {
+			if(color_string == key) {
 				color_string = simple_colors[key];
 			}
 		}
@@ -178,7 +177,7 @@
 			{
 				re: /^rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)$/,
 				example: ['rgb(123, 234, 45)', 'rgb(255,234,245)'],
-				process: function (bits){
+				process: function(bits) {
 					return [
 						parseInt(bits[1]),
 						parseInt(bits[2]),
@@ -189,7 +188,7 @@
 			{
 				re: /^(\w{2})(\w{2})(\w{2})$/,
 				example: ['#00ff00', '336699'],
-				process: function (bits){
+				process: function(bits) {
 					return [
 						parseInt(bits[1], 16),
 						parseInt(bits[2], 16),
@@ -200,7 +199,7 @@
 			{
 				re: /^(\w{1})(\w{1})(\w{1})$/,
 				example: ['#fb0', 'f0f'],
-				process: function (bits){
+				process: function(bits) {
 					return [
 						parseInt(bits[1] + bits[1], 16),
 						parseInt(bits[2] + bits[2], 16),
@@ -211,11 +210,11 @@
 		];
 
 		// search through the definitions to find a match
-		for (var i = 0; i < color_defs.length; i++) {
+		for(var i = 0; i < color_defs.length; i++) {
 			var re = color_defs[i].re;
 			var processor = color_defs[i].process;
 			var bits = re.exec(color_string);
-			if (bits) {
+			if(bits) {
 				channels = processor(bits);
 				this.r = channels[0];
 				this.g = channels[1];
@@ -231,47 +230,47 @@
 		this.b = (this.b < 0 || isNaN(this.b)) ? 0 : ((this.b > 255) ? 255 : this.b);
 
 		// some getters
-		this.toRGB = function () {
+		this.toRGB = function() {
 			return 'rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')';
 		}
-		this.toHex = function () {
+		this.toHex = function() {
 			var r = this.r.toString(16);
 			var g = this.g.toString(16);
 			var b = this.b.toString(16);
-			if (r.length == 1) r = '0' + r;
-			if (g.length == 1) g = '0' + g;
-			if (b.length == 1) b = '0' + b;
+			if(r.length == 1) r = '0' + r;
+			if(g.length == 1) g = '0' + g;
+			if(b.length == 1) b = '0' + b;
 			return '#' + r + g + b;
 		}
 
 		// help
-		this.getHelpXML = function () {
+		this.getHelpXML = function() {
 
 			var examples = new Array();
 			// add regexps
-			for (var i = 0; i < color_defs.length; i++) {
+			for(var i = 0; i < color_defs.length; i++) {
 				var example = color_defs[i].example;
-				for (var j = 0; j < example.length; j++) {
+				for(var j = 0; j < example.length; j++) {
 					examples[examples.length] = example[j];
 				}
 			}
 			// add type-in colors
-			for (var sc in simple_colors) {
+			for(var sc in simple_colors) {
 				examples[examples.length] = sc;
 			}
 
 			var xml = document.createElement('ul');
 			xml.setAttribute('id', 'rgbcolor-examples');
-			for (var i = 0; i < examples.length; i++) {
+			for(var i = 0; i < examples.length; i++) {
 				try {
 					var list_item = document.createElement('li');
 					var list_color = new RGBColor(examples[i]);
 					var example_div = document.createElement('div');
 					example_div.style.cssText =
-							'margin: 3px; '
-							+ 'border: 1px solid black; '
-							+ 'background:' + list_color.toHex() + '; '
-							+ 'color:' + list_color.toHex()
+						'margin: 3px; '
+						+ 'border: 1px solid black; '
+						+ 'background:' + list_color.toHex() + '; '
+						+ 'color:' + list_color.toHex()
 					;
 					example_div.appendChild(document.createTextNode('test'));
 					var list_item_value = document.createTextNode(
@@ -281,7 +280,8 @@
 					list_item.appendChild(list_item_value);
 					xml.appendChild(list_item);
 
-				} catch(e){}
+				} catch(e) {
+				}
 			}
 			return xml;
 
@@ -289,16 +289,18 @@
 
 	}
 
-    // export as AMD...
-    if ( typeof define !== 'undefined' && define.amd ) {
-        define( function () { return RGBColor; });
-    }
+	// export as AMD...
+	if(typeof define !== 'undefined' && define.amd) {
+		define(function() {
+			return RGBColor;
+		});
+	}
 
-    // ...or as browserify
-    else if ( typeof module !== 'undefined' && module.exports ) {
-        module.exports = RGBColor;
-    }
+	// ...or as browserify
+	else if(typeof module !== 'undefined' && module.exports) {
+		module.exports = RGBColor;
+	}
 
-    global.RGBColor = RGBColor;
+	global.RGBColor = RGBColor;
 
-}( typeof window !== 'undefined' ? window : this ));
+}(typeof window !== 'undefined' ? window : this));
