@@ -3,7 +3,11 @@
 	<?php
 
 	require_once('functions.php');
-	LogPostValuesToLog($_POST['this_log'], 'cl_infos');
+
+	$rundate = date("Y-m-d") . "-" . date("h-i-sa");
+-	$username = $_SERVER['REMOTE_USER'];
+	$log_file = "./logs/$username_$rundate.txt";
+	LogPostValuesToLog($log_file, 'cl_infos');
 
 	?>
 	<head>
@@ -1334,7 +1338,7 @@
 							foreach($_POST as $key => $value) {
 								echo "<input type=\"hidden\" name=\"" . $key . "\" value=\"" . $value . "\">";
 							}
-							echo "<input type=\"hidden\" name=\"this_log\" value=\"" . $this_log . "\">";
+							echo "<input type=\"hidden\" name=\"this_log\" value=\"" . $log_file . "\">";
 							?>
 							<table width="90%">
 								<tr>
