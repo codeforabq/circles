@@ -4,6 +4,7 @@
 
 	require_once('functions.php');
 	LogPostValuesToLog($_POST['this_log'], 'cl_expenses');
+	$this_log = $_POST['this_log'];
 
 	?>
 	<head>
