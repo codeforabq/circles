@@ -7,78 +7,78 @@
 //$TotalUnEarnedIncome
 //$TotalIncome
 
-$cl_stateinits = $_POST['cl_stateinits'];
-$twentyone_or_older_PTcheck = $_POST['twentyone_or_older_PTcheck'];
-$twentyone_or_older_FTcheck = $_POST['twentyone_or_older_FTcheck'];
-$twentyone_or_older_Expcheck = $_POST['twentyone_or_older_Expcheck'];
-$ChildcareAmount = $_POST['ChildcareAmount'];
+$cl_stateinits = $cl_input['cl_stateinits'];
+$twentyone_or_older_PTcheck = $cl_input['twentyone_or_older_PTcheck'];
+$twentyone_or_older_FTcheck = $cl_input['twentyone_or_older_FTcheck'];
+$twentyone_or_older_Expcheck = $cl_input['twentyone_or_older_Expcheck'];
+$ChildcareAmount = $cl_input['ChildcareAmount'];
 
 if($twentyone_or_older_PTcheck == "Yes") {
-	$cl_adults_PT = $_POST['cl_adults_PT'];
+	$cl_adults_PT = $cl_input['cl_adults_PT'];
 } else {
 	$cl_adults_PT = "0";
 }
 if($twentyone_or_older_FTcheck == "Yes") {
-	$cl_adults_FT = $_POST['cl_adults_FT'];
+	$cl_adults_FT = $cl_input['cl_adults_FT'];
 } else {
 	$cl_adults_FT = "0";
 }
 if($twentyone_or_older_Expcheck == "Yes") {
-	$incomeexpenses_amount = $_POST['WorkExpenseAmount'];
+	$incomeexpenses_amount = $cl_input['WorkExpenseAmount'];
 } else {
 	$incomeexpenses_amount = "0";
 }
 
-$deduct_spousesupport_amount = $_POST['SpouseSupportPaidAmount'];
-$deduct_childsupport_amount = $_POST['ChildSupportPaidAmount'];
+$deduct_spousesupport_amount = $cl_input['SpouseSupportPaidAmount'];
+$deduct_childsupport_amount = $cl_input['ChildSupportPaidAmount'];
 
 $children_over2 = 0;
 $children_under2 = 0;
 
-if(isset($_POST['cl_child1_years'])) {
-	if($_POST['cl_child1_years'] >= 2) {
+if(isset($cl_input['cl_child1_years'])) {
+	if($cl_input['cl_child1_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child2_years'])) {
-	if($_POST['cl_child2_years'] >= 2) {
+if(isset($cl_input['cl_child2_years'])) {
+	if($cl_input['cl_child2_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child3_years'])) {
-	if($_POST['cl_child3_years'] >= 2) {
+if(isset($cl_input['cl_child3_years'])) {
+	if($cl_input['cl_child3_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child4_years'])) {
-	if($_POST['cl_child4_years'] >= 2) {
+if(isset($cl_input['cl_child4_years'])) {
+	if($cl_input['cl_child4_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child5_years'])) {
-	if($_POST['cl_child5_years'] >= 2) {
+if(isset($cl_input['cl_child5_years'])) {
+	if($cl_input['cl_child5_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child6_years'])) {
-	if($_POST['cl_child6_years'] >= 2) {
+if(isset($cl_input['cl_child6_years'])) {
+	if($cl_input['cl_child6_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child7_years'])) {
-	if($_POST['cl_child7_years'] >= 2) {
+if(isset($cl_input['cl_child7_years'])) {
+	if($cl_input['cl_child7_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
@@ -91,15 +91,15 @@ if(isset($_POST['cl_child8_years'])) {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child9_years'])) {
-	if($_POST['cl_child9_years'] >= 2) {
+if(isset($cl_input['cl_child9_years'])) {
+	if($cl_input['cl_child9_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child10_years'])) {
-	if($_POST['cl_child10_years'] >= 2) {
+if(isset($cl_input['cl_child10_years'])) {
+	if($cl_input['cl_child10_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
@@ -112,54 +112,54 @@ if(isset($_POST['cl_child11_years'])) {
 		$children_under2 = $children_under2 + 1;
 	}
 }
-if(isset($_POST['cl_child12_years'])) {
-	if($_POST['cl_child12_years'] >= 2) {
+if(isset($cl_input['cl_child12_years'])) {
+	if($cl_input['cl_child12_years'] >= 2) {
 		$children_over2 = $children_over2 + 1;
 	} else {
 		$children_under2 = $children_under2 + 1;
 	}
 }
 
-if(isset($_POST['cl_less_than_thirteen'])) {
-	$cl_less_than_thirteen = $_POST['cl_less_than_thirteen'];
+if(isset($cl_input['cl_less_than_thirteen'])) {
+	$cl_less_than_thirteen = $cl_input['cl_less_than_thirteen'];
 } else {
 	$cl_less_than_thirteen = 0;
 }
-if(isset($_POST['cl_thirteen_to_twenty'])) {
+if(isset($cl_input['cl_thirteen_to_twenty'])) {
 	$cl_thirteen_to_twenty = $_POST['cl_thirteen_to_twenty'];
 } else {
 	$cl_thirteen_to_twenty = 0;
 }
-if(isset($_POST['ChildSupportReceived'])) {
-	$child_support_received_amount = $_POST['ChildSupportReceived'];
+if(isset($cl_input['ChildSupportReceived'])) {
+	$child_support_received_amount = $cl_input['ChildSupportReceived'];
 } else {
 	$child_support_received_amount = 0;
 }
-if(isset($_POST['MedicalElderlyAmount'])) {
-	$medical_elderly_amount = $_POST['MedicalElderlyAmount'];
+if(isset($cl_input['MedicalElderlyAmount'])) {
+	$medical_elderly_amount = $cl_input['MedicalElderlyAmount'];
 } else {
 	$medical_elderly_amount = 0;
 }
-if(isset($_POST['13to18_check'])) {
-	$teenager_count = $_POST['13to18_check'];
+if(isset($cl_input['13to18_check'])) {
+	$teenager_count = $cl_input['13to18_check'];
 } else {
 	$teenager_count = 0;
 }
-if(isset($_POST['CheckingAccountBal'])) {
-	$Checking_Account_Balance = $_POST['CheckingAccountBal'];
+if(isset($cl_input['CheckingAccountBal'])) {
+	$Checking_Account_Balance = $cl_input['CheckingAccountBal'];
 } else {
 	$Checking_Account_Balance = 0;
 }
-$checking_account_bal = $_POST['CheckingAccountBal'];
-$savings_account_bal = $_POST['SavingsAccountBal'];
-$EVvehicle1 = $_POST['EVvehicle1'];
-$EVothervehicle = $_POST['EVothervehicle'];
+$checking_account_bal = $cl_input['CheckingAccountBal'];
+$savings_account_bal = $cl_input['SavingsAccountBal'];
+$EVvehicle1 = $cl_input['EVvehicle1'];
+$EVothervehicle = $cl_input['EVothervehicle'];
 $total_of_vehicles = $EVvehicle1 + $EVothervehicle;
-$EVpersonal = $_POST['EVpersonal'];
-$EVnonResi = $_POST['EVnonResi'];
-$EVallCountable = $_POST['EVallCountable'];
-$elderly_disabled_home = $_POST['cl_family_over60_check'];
-$every_member_benefits = $_POST['cl_family_All_onBenefits_check'];
+$EVpersonal = $cl_input['EVpersonal'];
+$EVnonResi = $cl_input['EVnonResi'];
+$EVallCountable = $cl_input['EVallCountable'];
+$elderly_disabled_home = $cl_input['cl_family_over60_check'];
+$every_member_benefits = $cl_input['cl_family_All_onBenefits_check'];
 
 //***INCOME AND DEDUCTIONS SECTION***
 
