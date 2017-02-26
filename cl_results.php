@@ -36,6 +36,98 @@
 	$cl_state = $cl_input["cl_state"];
 	$cl_city = $cl_input["cl_city"];
 
+	$people_count = $HowManyAdults + $HowManyChildren;
+
+	$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+	if($dbconn->connect_errno > 0) {
+		die('Unable to connect to database [' . $db->connect_error . ']');
+	}
+
+	$fpig_sql = "SELECT income_guide48 FROM fpig WHERE house_members=\"$people_count\";";
+	$fpig_result = $dbconn->query($fpig_sql);
+	$fpig_row = $fpig_result->fetch_assoc();
+	$fpig100 = $fpig_row["income_guide48"] / 12;
+	$fpig200 = ($fpig_row["income_guide48"] * 2) / 12;
+	//$dbconn->close();
+
+	$plotpoints = 19;
+
+	$TotalEarnedIncome = str_replace(',', '', $cl_input["TotalEarned"]);
+	$TotalUnEarnedIncome = str_replace(',', '', $cl_input["TotalUnEarned"]);
+	$TotalIncome = $TotalEarnedIncome + $TotalUnEarnedIncome;
+
+	if($people_count > 8) {
+		$hud_people_count = 8;
+	} else {
+		$hud_people_count = $people_count;
+	}
+	$hudi = "i50_" . $hud_people_count;
+	$hud_sql = "SELECT " . $hudi . " FROM nm_hud_income_limits WHERE county_statename=\"" . $cl_county . " County, " . $cl_state . "\";";
+	$hud_result = $dbconn->query($hud_sql);
+	$hud_row = $hud_result->fetch_assoc();
+	$HUD_Income_Limit = $hud_row[$hudi];
+
+	if(isset($cl_input['Bedrooms'])) {
+		$cl_Bedrooms = $cl_input['Bedrooms'];
+	} else {
+		$cl_Bedrooms = 0;
+	}
+	if($cl_Bedrooms = 0) {
+		$HUD_Room_Adjusment = 0.5;
+	}
+	if($cl_Bedrooms = 1) {
+		$HUD_Room_Adjusment = 0.7;
+	}
+	if($cl_Bedrooms = 2) {
+		$HUD_Room_Adjusment = 0.9;
+	}
+	if($cl_Bedrooms = 3) {
+		$HUD_Room_Adjusment = 1.1;
+	}
+	if($cl_Bedrooms = 4) {
+		$HUD_Room_Adjusment = 1.5;
+	}
+	if($cl_Bedrooms = 5) {
+		$HUD_Room_Adjusment = 1.6;
+	}
+
+	if(isset($cl_input['AlimonyReceived'])) {
+		$MAGI_AlimonyReceived = $cl_input['AlimonyReceived'];
+	} else {
+		$MAGI_AlimonyReceived = 0;
+	}
+	if(isset($cl_input['MonthlyGifts'])) {
+		$MAGI_MonthlyGifts = $cl_input['MonthlyGifts'];
+	} else {
+		$MAGI_MonthlyGifts = 0;
+	}
+	if(isset($cl_input['ArmedForcesAmount'])) {
+		$MAGI_ArmedForcesAmount = $cl_input['ArmedForcesAmount'];
+	} else {
+		$MAGI_ArmedForcesAmount = 0;
+	}
+	if(isset($cl_input['cl_family_college_students'])) {
+		$Student_Count = $cl_input['cl_family_college_students'];
+	} else {
+		$Student_Count = 0;
+	}
+	if(isset($cl_input['GasAmount'])) {
+		$cl_GasAmount = $cl_input['GasAmount'];
+	} else {
+		$cl_GasAmount = 0;
+	}
+	if(isset($cl_input['ElectricAmount'])) {
+		$cl_ElectricAmount = $cl_input['ElectricAmount'];
+	} else {
+		$cl_ElectricAmount = 0;
+	}
+
+	require 'col_figurin.php';
+	require 'tanf_figurin.php';
+	require 'snap_figurin.php';
+	require 'ccis_figurin.php';
+
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -160,105 +252,12 @@
 			<div style="text-align: center; float: left; width: 100%;">
 				<p class="p1">
 					<br>Circle Leader <?php	echo $HowManyAdults; ?> Adults with <?php echo $HowManyChildren; ?>
-					Children -
+					Children - <?php echo "$cl_city, $cl_county, $cl_state"; ?>
 
 					<?php
 
-					echo $cl_city . ", " . $cl_county . ", " . $cl_state;
 
-					$people_count = $HowManyAdults + $HowManyChildren;
 
-					$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-					if($dbconn->connect_errno > 0) {
-						die('Unable to connect to database [' . $db->connect_error . ']');
-					}
-
-					$fpig_sql = "SELECT income_guide48 FROM fpig WHERE house_members=\"$people_count\";";
-					$fpig_result = $dbconn->query($fpig_sql);
-					$fpig_row = $fpig_result->fetch_assoc();
-					$fpig100 = $fpig_row["income_guide48"] / 12;
-					$fpig200 = ($fpig_row["income_guide48"] * 2) / 12;
-					//$dbconn->close();
-
-					$plotpoints = 19;
-
-					$TotalEarnedIncome = str_replace(',', '', $cl_input["TotalEarned"]);
-					//echo "<br><br>TOTALEARNEDINCOME == ".$TotalEarnedIncome."<br><br>";
-					$TotalUnEarnedIncome = str_replace(',', '', $cl_input["TotalUnEarned"]);
-					//echo "TOTALUNEARNEDINCOME == ".$TotalUnEarnedIncome."<br><br>";
-					$TotalIncome = $TotalEarnedIncome + $TotalUnEarnedIncome;
-
-					if($people_count > 8) {
-						$hud_people_count = 8;
-					} else {
-						$hud_people_count = $people_count;
-					}
-					$hudi = "i50_" . $hud_people_count;
-					$hud_sql = "SELECT " . $hudi . " FROM nm_hud_income_limits WHERE county_statename=\"" . $cl_county . " County, " . $cl_state . "\";";
-					$hud_result = $dbconn->query($hud_sql);
-					$hud_row = $hud_result->fetch_assoc();
-					$HUD_Income_Limit = $hud_row[$hudi];
-
-					if(isset($cl_input['Bedrooms'])) {
-						$cl_Bedrooms = $cl_input['Bedrooms'];
-					} else {
-						$cl_Bedrooms = 0;
-					}
-					if($cl_Bedrooms = 0) {
-						$HUD_Room_Adjusment = 0.5;
-					}
-					if($cl_Bedrooms = 1) {
-						$HUD_Room_Adjusment = 0.7;
-					}
-					if($cl_Bedrooms = 2) {
-						$HUD_Room_Adjusment = 0.9;
-					}
-					if($cl_Bedrooms = 3) {
-						$HUD_Room_Adjusment = 1.1;
-					}
-					if($cl_Bedrooms = 4) {
-						$HUD_Room_Adjusment = 1.5;
-					}
-					if($cl_Bedrooms = 5) {
-						$HUD_Room_Adjusment = 1.6;
-					}
-
-					if(isset($cl_input['AlimonyReceived'])) {
-						$MAGI_AlimonyReceived = $cl_input['AlimonyReceived'];
-					} else {
-						$MAGI_AlimonyReceived = 0;
-					}
-					if(isset($cl_input['MonthlyGifts'])) {
-						$MAGI_MonthlyGifts = $cl_input['MonthlyGifts'];
-					} else {
-						$MAGI_MonthlyGifts = 0;
-					}
-					if(isset($cl_input['ArmedForcesAmount'])) {
-						$MAGI_ArmedForcesAmount = $cl_input['ArmedForcesAmount'];
-					} else {
-						$MAGI_ArmedForcesAmount = 0;
-					}
-					if(isset($cl_input['cl_family_college_students'])) {
-						$Student_Count = $cl_input['cl_family_college_students'];
-					} else {
-						$Student_Count = 0;
-					}
-					if(isset($cl_input['GasAmount'])) {
-						$cl_GasAmount = $cl_input['GasAmount'];
-					} else {
-						$cl_GasAmount = 0;
-					}
-					if(isset($cl_input['ElectricAmount'])) {
-						$cl_ElectricAmount = $cl_input['ElectricAmount'];
-					} else {
-						$cl_ElectricAmount = 0;
-					}
-
-					require 'col_figurin.php';
-					require 'tanf_figurin.php';
-					require 'snap_figurin.php';
-					require 'ccis_figurin.php';
 
 					?>
 				</p>
