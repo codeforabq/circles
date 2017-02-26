@@ -2,7 +2,7 @@
 <html>
 	<?php
 
-	require_once 'functions.php';
+	require_once('functions.php');
 	LogPostValuesToLog($_POST['this_log'], 'cl_infos');
 
 	?>

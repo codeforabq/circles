@@ -2,8 +2,10 @@
 <html>
 	<?php
 	include("config.php");
+
+	require_once('functions.php');
 	$whoisdis = $_SERVER['REMOTE_USER'];
-	//echo "<br><br>Dis Is . . . ".$whoisdis."<br><br>";
+
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
