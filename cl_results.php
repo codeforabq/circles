@@ -10,6 +10,27 @@
 	foreach($_POST as $key => $value) {
 		$cl_input[$key] = $value;
 	}
+
+	// Circle leaders who are teenage parents
+	if(isset($cl_input['cl_adults'])) {
+		$HowManyAdults = $cl_input['cl_adults'];
+	} else {
+		$HowManyAdults = 0;
+	}
+
+	// Calculate how many children the circle leader has, across age groups
+	if(isset($cl_input['cl_thirteen_to_twenty'])) {
+		$HowMany13to20s = $cl_input['cl_thirteen_to_twenty'];
+	} else {
+		$HowMany13to20s = 0;
+	}
+	if(isset($cl_input['cl_less_than_thirteen'])) {
+		$HowManyLessThan13s = $cl_input['cl_less_than_thirteen'];
+	} else {
+		$HowManyLessThan13s = 0;
+	}
+	$HowManyChildren = $HowMany13to20s + $HowManyLessThan13s;
+
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -133,31 +154,7 @@
 			</div>
 			<div style="text-align: center; float: left; width: 100%;">
 				<p class="p1">
-					<br>Circle Leader
-					<?php
-					if(isset($cl_input['cl_adults'])) {
-						$HowManyAdults = $cl_input['cl_adults'];
-					} else {
-						$HowManyAdults = 0;
-					}
-					echo $HowManyAdults;
-					?>
-					Adults with
-					<?php
-					if(isset($cl_input['cl_thirteen_to_twenty'])) {
-						$HowMany13to20s = $cl_input['cl_thirteen_to_twenty'];
-					} else {
-						$HowMany13to20s = 0;
-					}
-					if(isset($cl_input['cl_less_than_thirteen'])) {
-						$HowManyLessThan13s = $cl_input['cl_less_than_thirteen'];
-					} else {
-						$HowManyLessThan13s = 0;
-					}
-					$HowManyChildren = $HowMany13to20s + $HowManyLessThan13s;
-					echo $HowManyChildren;
-					?>
-
+					<br>Circle Leader <?php	echo $HowManyAdults; ?> Adults with <?php echo $HowManyChildren; ?>
 					Children -
 
 					<?php
