@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
-	$this_log = $_POST['this_log'];
-	//echo "<br><br>Log Is . . . ".$trace_file."<br>";
-	$rundate = date("Y-m-d") . "-" . date("h-i-sa");
-	//echo "Now Is . . . ".$rundate."<br>";
-	$whoisdis = $_SERVER['REMOTE_USER'];
-	//echo "Dis Is . . . ".$whoisdis."<br><br>";
-	$trace_file = fopen($this_log, "a") or die("Unable to open trace file!");
-	$whichreferer = "START-cl_expenses\n";
-	fwrite($trace_file, $whichreferer);
+	// Generate JSON object for data submitting from previous form (cl_expenses)
+	$output = array();
+	$output['cl_expenses'] = array();
+
 	foreach($_POST as $key => $value) {
-		fwrite($trace_file, $key . "-" . $value . "\n");
+		$output['cl_expenses'][$key] = $value;
 	}
-	fwrite($trace_file, "ESTODO-cl-expenses\n");
+	$output_json = json_encode($output);
+
+	// Write to file on server (get rid of this!)
+	$this_log = $_POST['this_log'];
+	$trace_file = fopen($this_log, "a") or die("Unable to open trace file!");
+	fwrite($trace_file, $output_json);
 	fclose($trace_file);
 	?>
 	<head>

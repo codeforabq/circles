@@ -1,19 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
-	$rundate = date("Y-m-d") . "-" . date("h-i-sa");
-	//echo "<br><br>Now Is . . . ".$rundate."<br><br>";
-	$whoisdis = $_SERVER['REMOTE_USER'];
-	//echo "<br><br>Dis Is . . . ".$whoisdis."<br><br>";
-	$this_log = "./logs/" . $whoisdis . "_" . $rundate . ".txt";
-	$trace_file = fopen($this_log, "w") or die("Unable to open trace file!");
-	$whichreferer = "START-cl_infos\n";
-	fwrite($trace_file, $whichreferer);
-	foreach($_POST as $key => $value) {
-		fwrite($trace_file, $key . "-" . $value . "\n");
-	}
-	fwrite($trace_file, "ESTODO-cl-infos\n");
-	fclose($trace_file);
+
+	require_once 'functions.php';
+	LogPostValuesToLog($_POST['this_log'], 'cl_infos');
+
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

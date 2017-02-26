@@ -489,29 +489,18 @@
 				document.getElementById("ThatsAllFolks").style.display = "block";
 			}
 
+			// After the user selects a state
+			function StateSelectionSubmission() {
+				let cl_state = $('select#cl_state').val();
+				sessionStorage.setItem('cl_state', cl_state);
+				console.log(cl_state);
+			}
+
 		</script>
 
 	</head>
 
 	<body>
-		<?php
-		if(!isset($ishomeless)) {
-			$ishomeless = "No";
-		}
-		//echo "<table border=\"1\">";
-		//foreach ($_POST as $key => $value) {
-		//  echo "<tr>";
-		//  echo "<td>";
-		//  echo $key;
-		//  echo "</td>";
-		//  echo "<td>";
-		//  echo $value;
-		//  echo "</td>";
-		//  echo "</tr>";
-		//  }
-		// echo "</table>"
-		?>
-
 		<!-- BEGIN OUTSIDE FORM -->
 		<div id="MainDIV" class="centered">
 			<form id="cl_infos_form" enctype="multipart/form-data" method="POST" action="cl_infos.php"
@@ -541,12 +530,13 @@
 
 				<div name="State" style="opacity: 1; float:left; width: 33%;">
 					<label class="form-els">State</label><br>
-					<select id="cl_state" name="cl_state" onchange='this.form.submit()'>
+					<select id="cl_state" name="cl_state" onchange='StateSelectionSubmission(); this.form.submit()'>
 						<?php
 						if(isset($_POST['cl_stateinits'])) {
 							$cl_stateinits = $_POST['cl_stateinits'];
 						}
 						if(isset($_POST['cl_state'])) {
+							// Second page someone sees
 							$cl_state = $_POST['cl_state'];
 
 
@@ -563,6 +553,7 @@
 
 							echo "<option value=\"" . $cl_state . "\">" . $cl_state . "</option><option value=\"\"></option>";
 						} else {
+							// First time someone sees this page, the state is being selected
 							echo "<option value=\"\">Choose one</option><option value=\"\"></option>";
 						}
 

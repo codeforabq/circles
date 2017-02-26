@@ -2,21 +2,8 @@
 <html>
 	<?php
 	include("config.php");
-	$this_log = $_POST['this_log'];
-	//echo "<br><br>Log Is . . . ".$trace_file."<br>";
-	$rundate = date("Y-m-d") . "-" . date("h-i-sa");
-	//echo "Now Is . . . ".$rundate."<br>";
-	//$whoisdis = $_SERVER['REMOTE_USER'];
-	$whoisdis = "ubuveg";
-	//echo "Dis Is . . . ".$whoisdis."<br><br>";
-	$trace_file = fopen($this_log, "a") or die("Unable to open trace file!");
-	$whichreferer = "START-cl_income\n";
-	fwrite($trace_file, $whichreferer);
-	foreach($_POST as $key => $value) {
-		fwrite($trace_file, $key . "-" . $value . "\n");
-	}
-	fwrite($trace_file, "ESTODO-cl-income\n");
-	fclose($trace_file);
+	require_once 'functions.php';
+	LogPostValuesToLog($_POST['this_log'], 'cl_income');
 	?>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
