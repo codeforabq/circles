@@ -16,13 +16,13 @@ if(isset($HowManyChildren)) {
 } else {
 	$children = "0";
 }
-if(isset($_POST['cl_adults_FT'])) {
+if(isset($cl_input['cl_adults_FT'])) {
 	$working = "1";
 } else {
 	$working = "0";
 }
-$county = $_POST['cl_county'];
-$state = $_POST['cl_state'];
+$county = $cl_input['cl_county'];
+$state = $cl_input['cl_state'];
 
 if($adults = 1) {
 	$working = 0;

@@ -16,8 +16,8 @@ while($maxmed_row = $maxmed_result->fetch_assoc()) {
 }
 
 //CALCULATE F30 from CCIS worksheet
-$ExpenseDisabledAmount = $_POST['ExpenseDisabledAmount'];
-$MedicalElderlyAmount = $_POST['MedicalElderlyAmount'];
+$ExpenseDisabledAmount = $cl_input['ExpenseDisabledAmount'];
+$MedicalElderlyAmount = $cl_input['MedicalElderlyAmount'];
 $CCIS_F30 = $ExpenseDisabledAmount + $MedicalElderlyAmount;
 
 //CALCULATE MEDICAL ADJUSTMENT
@@ -31,13 +31,13 @@ while($workadj_row = $workadj_result->fetch_assoc()) {
 }
 
 //CALCULATE THE NUMBER OF FULL AND PARTTIME WORKERS
-if(isset($_POST['cl_adults_FT'])) {
-	$Fulltime_Workers = $_POST['cl_adults_FT'];
+if(isset($cl_input['cl_adults_FT'])) {
+	$Fulltime_Workers = $cl_input['cl_adults_FT'];
 } else {
 	$Fulltime_Workers = 0;
 }
-if(isset($_POST['cl_adults_PT'])) {
-	$Parttime_Workers = $_POST['cl_adults_PT'];
+if(isset($cl_input['cl_adults_PT'])) {
+	$Parttime_Workers = $cl_input['cl_adults_PT'];
 } else {
 	$Parttime_Workers = 0;
 }
@@ -70,7 +70,7 @@ if($child_support_received_amount >= $CCIS_ChildSupportReceived_Allowed) {
 //IF(Step_Parent="y",
 //IF(HouseHoldSize<=6,VLOOKUP(CCIS_County_State,#REF!,HouseHoldSize),
 //(VLOOKUP(CCIS_County_State,#REF!,6)+(VLOOKUP(CCIS_County_State,#REF!,7)*(HouseHoldSize-6)))),0))
-$StepParentSatus = $_POST['cl_family_stepparent_check'];
+$StepParentSatus = $cl_input['cl_family_stepparent_check'];
 
 $CCIS_StepParent_Adjustment = 0;
 
@@ -138,15 +138,15 @@ $CCIS_FPIG150Monthly_Amount = $CCIS_TotalNetIncome_Amount * $CCIS_EligibPercent1
 $CCIS_FPIG150Annual_Amount = $CCIS_FPIG150Monthly_Amount * 12;
 
 //CALCULATE THE KIDDOS LESS THAN 13 YEARS OLD AND THEIR AGES
-$CCIS_KidsLessThan13_Check = $_POST['less_than_thirteen_check'];
+$CCIS_KidsLessThan13_Check = $cl_input['less_than_thirteen_check'];
 if($CCIS_KidsLessThan13_Check == "Yes") {
 	$CCIS_TotalAgesLessThan13 = 0;
-	$CCIS_KidsLessThan13_Amount = $_POST['cl_less_than_thirteen'];
+	$CCIS_KidsLessThan13_Amount = $cl_input['cl_less_than_thirteen'];
 	$i = 1;
 	while($i <= $CCIS_KidsLessThan13_Amount) {
 		$which_childyears_post = "cl_child" . $i . "_years";
 		$which_childmonths_post = "cl_child" . $i . "_months";
-		$this_child_age = $_POST[$which_childyears_post] + $_POST[$which_childmonths_post];
+		$this_child_age = $cl_input[$which_childyears_post] + $cl_input[$which_childmonths_post];
 		$CCIS_TotalAgesLessThan13 = $CCIS_TotalAgesLessThan13 + $this_child_age;
 		$i++;
 	}
@@ -155,8 +155,8 @@ if($CCIS_KidsLessThan13_Check == "Yes") {
 }
 
 //CALCULATE THE KIDDOS FROM 13 TO 18 YEARS OLD THAT ARE DISABLED
-if(isset($_POST['cl_unable'])) {
-	$CCIS_KiddosUnable_Amount = $_POST['cl_unable'];
+if(isset($cl_input['cl_unable'])) {
+	$CCIS_KiddosUnable_Amount = $cl_input['cl_unable'];
 } else {
 	$CCIS_KiddosUnable_Amount = 0;
 }

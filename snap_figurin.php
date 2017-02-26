@@ -6,8 +6,8 @@
 $SNAP_Max_Ben_AddCount = 11;
 $SNAP_Max_People_Count = 10;
 
-if(isset($_POST['cl_family_over60_check'])) {
-	$elderly_disabled_home = $_POST['cl_family_over60_check'];
+if(isset($cl_input['cl_family_over60_check'])) {
+	$elderly_disabled_home = $cl_input['cl_family_over60_check'];
 }
 
 //LOOKUP SNAP INCOME LIMIT PERCENTAGES
@@ -109,13 +109,13 @@ if($household_status_code > 3) {
 }
 
 //DETERMINE NET INCOME ELIGIBILITY
-if(isset($_POST['UnEmploymentEtc'])) {
-	$unearned_income_received = $_POST['UnEmploymentEtc'];
+if(isset($cl_input['UnEmploymentEtc'])) {
+	$unearned_income_received = $cl_input['UnEmploymentEtc'];
 } else {
 	$unearned_income_received = 0;
 }
-if(isset($_POST['MedicalElderlyAmount'])) {
-	$MedicalElderlyAmount = $_POST['MedicalElderlyAmount'];
+if(isset($cl_input['MedicalElderlyAmount'])) {
+	$MedicalElderlyAmount = $cl_input['MedicalElderlyAmount'];
 } else {
 	$MedicalElderlyAmount = 0;
 }
@@ -150,7 +150,7 @@ if($elderly_disabled_home == "Yes") {
 }
 
 //LOOKUP DEPENDANT CARE DEDUCTION AND CHILD SUPPORT PAID DEDUCTION
-$ChildSupportPaidAmount = $_POST['ChildSupportPaidAmount'];
+$ChildSupportPaidAmount = $cl_input['ChildSupportPaidAmount'];
 $dcdeduct_sql = "SELECT depend_allow,child_supp_paid_deduct FROM state_data WHERE state_init=\"" . $cl_stateinits . "\";";
 $dcdeduct_result = $dbconn->query($dcdeduct_sql);
 while($dcdeduct_row = $dcdeduct_result->fetch_assoc()) {
@@ -175,7 +175,7 @@ $SNAPTotal_NonShelterDeductions = $earned_income_disregardSNAP + $SNAP_StandardD
 $SNAPIncome_AfterNonShelterDeductions = max(0, ($TotalIncome - $SNAPTotal_NonShelterDeductions));
 
 //CALCULATE UNADJUSTED SHELTER COSTS
-$cl_utilities = $_POST['cl_utilities'];
+$cl_utilities = $cl_input['cl_utilities'];
 
 if($homelesscode > 0) {
 	$SNAPstandard_utility_allowance = 0;
@@ -187,9 +187,9 @@ if($homelesscode > 0) {
 	}
 }
 
-$SNAP_MonthlyRentMortgage = $_POST['MortgageRentAmount'];
-$SNAP_InsuranceNotInc = $_POST['InsuranceNotInc'];
-$SNAP_TaxesNotInc = $_POST['TaxesNotInc'];
+$SNAP_MonthlyRentMortgage = $cl_input['MortgageRentAmount'];
+$SNAP_InsuranceNotInc = $cl_input['InsuranceNotInc'];
+$SNAP_TaxesNotInc = $cl_input['TaxesNotInc'];
 
 $SNAP_Total_UnadjustedShelterCosts = $SNAPstandard_utility_allowance + $SNAP_MonthlyRentMortgage + $SNAP_InsuranceNotInc + $SNAP_TaxesNotInc;
 
