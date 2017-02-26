@@ -1,5 +1,7 @@
 <?php
 
+// COL = Cost of Living
+
 //LOOKUP COST OF LIVING AMOUNTS BASED ON FAMILY COMPOSITION
 if(isset($HowManyAdults)) {
 	$adults = $HowManyAdults;

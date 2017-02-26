@@ -1,4 +1,7 @@
 <?php
+
+// CCIS = Child Care Information Services
+
 //$passSNAP_resource_test == Spreadsheet CCIS_B19
 //$ThisGrossIncome == Spreadsheet CCIS_B29
 //$people_count == CCIS_21

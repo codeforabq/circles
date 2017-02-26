@@ -1,5 +1,7 @@
 <?php
 
+// TANF = Temporary Assistant for Needy Families
+
 //Income Variables
 //$TotalEarnedIncome
 //$TotalUnEarnedIncome

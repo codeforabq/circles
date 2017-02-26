@@ -1,4 +1,7 @@
 <?php
+
+// SNAP = Supplemental Nutrition Assistance Program (i.e. food stamps)
+
 //THIS VALUE ISN'T IN ANY TABLE . . . HARDCODED!
 $SNAP_Max_Ben_AddCount = 11;
 $SNAP_Max_People_Count = 10;
