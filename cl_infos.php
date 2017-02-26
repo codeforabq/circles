@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
+	include("config.php");
 	$whoisdis = $_SERVER['REMOTE_USER'];
 	//echo "<br><br>Dis Is . . . ".$whoisdis."<br><br>";
 	?>
@@ -549,7 +550,7 @@
 							$cl_state = $_POST['cl_state'];
 
 
-							$dbconn = new mysqli('cusacept.sqldb.swcp.com', 'cusacept', 'PUT_PASSWORD_HERE', 'cusacept');
+							$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 							if(mysqli_connect_errno()) {
 								echo "Failed to connect to database: " . mysqli_connect_error();
 							}
@@ -566,7 +567,7 @@
 						}
 
 
-						$dbconn = new mysqli('cusacept.sqldb.swcp.com', 'cusacept', 'PUT_PASSWORD_HERE', 'cusacept');
+						$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 						//$dbconn = new mysqli('localhost', 'root', 'Sunshine99', 'cusacept');
 
 						if(mysqli_connect_errno()) {
@@ -597,7 +598,7 @@
 					}
 
 
-					$dbconn = new mysqli('cusacept.sqldb.swcp.com', 'cusacept', 'PUT_PASSWORD_HERE', 'cusacept');
+					$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 					if(mysqli_connect_errno()) {
 						echo "Failed to connect to database: " . mysqli_connect_error();
@@ -634,7 +635,7 @@
 						echo "<option value=\"\">Choose one</option>";
 					}
 
-					$dbconn = new mysqli('cusacept.sqldb.swcp.com', 'cusacept', 'PUT_PASSWORD_HERE', 'cusacept');
+					$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 					//$dbconn = new mysqli('localhost', 'root', 'Sunshine99', 'cusacept');
 
 					if(mysqli_connect_errno()) {

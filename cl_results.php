@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
+	include("config.php");
 	$this_log = $_POST['this_log'];
 	//echo "<br><br>Log Is . . . ".$trace_file."<br>";
 	$rundate = date("Y-m-d") . "-" . date("h-i-sa");
@@ -173,7 +174,7 @@
 
 					$people_count = $HowManyAdults + $HowManyChildren;
 
-					$dbconn = new mysqli('cusacept.sqldb.swcp.com', 'cusacept', 'PUT_PASSWORD_HERE', 'cusacept');
+					$dbconn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 					if($dbconn->connect_errno > 0) {
 						die('Unable to connect to database [' . $db->connect_error . ']');
