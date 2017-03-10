@@ -2,6 +2,17 @@
 
 // TANF = Temporary Assistant for Needy Families
 
+/**
+ * Inputs from cl_results.php:
+ * • HowManyAdults
+ * • HowManyChildren
+ * • cl_county
+ * • cl_state
+ * • $cl_input['cl_adults_FT']
+ * Returns:
+ * • incomeexpenses_amount
+ */
+
 //Income Variables
 //$TotalEarnedIncome
 //$TotalUnEarnedIncome
