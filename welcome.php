@@ -11,111 +11,12 @@
 		<script type="text/javascript" src="common/js/form_init.js" data-name=""
 				  id="form_init_script">
 		</script>
-		<link rel="stylesheet" type="text/css" href="theme/default/css/default.css"
-				id="theme"/>
+		<link rel="stylesheet" type="text/css" href="theme/default/css/default.css" id="theme"/>
+		<link rel="stylesheet" type="text/css" href="styles/style.css" />
 		<title>
 			CUSA Cliff Effect
 		</title>
 
-		<style>
-			.nextbutton {
-				background-color: #069B54; /* GREEN */
-				border: none;
-				color: white;
-				padding: 5px 5px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 10px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-
-			.donebutton {
-				background-color: #EF5F0A; /* ORANGE */
-				border: none;
-				color: white;
-				padding: 5px 5px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 10px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-
-			.anotherbutton {
-				background-color: #008FD9; /* BLUE */
-				border: none;
-				color: white;
-				padding: 5px 5px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 10px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-
-			.centered {
-				margin: auto;
-				width: 60%;
-				border: 6px ridge rgb(0, 159, 222);
-				color: rgb(0, 0, 0);
-				padding: 10px;
-				box-shadow: 5px 5px 5px #cccccc;
-				border-radius: 8px;
-				position: relative;
-			}
-
-			.h2 {
-				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-				font-weight: bold;
-				color: rgb(0, 163, 222);
-			}
-
-			.h3 {
-				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-			/ / font-weight: bold;
-				color: black;
-			}
-
-			.p1 {
-				display: inline;
-				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-				font-weight: bold;
-				color: rgb(0, 163, 222);
-				font-size: 18px;
-			}
-
-			.p2 {
-				display: inline;
-				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-				font-weight: bold;
-				color: rgb(0, 163, 222);
-				font-size: 18px;
-			}
-
-			.form-els {
-				display: inline;
-				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-				font-weight: bold;
-			}
-
-			.button-text {
-				display: inline;
-				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-				font-size: 14px;
-			/ / font-weight: bold;
-			}
-
-			.org-hr {
-				width: 100%;
-				border-style: outset;
-				border-width: 3px;
-				color: rgb(242, 117, 34);
-			}
-		</style>
 	</head>
 
 	<body>

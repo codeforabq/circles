@@ -13,11 +13,22 @@
 		</script>
 		<link rel="stylesheet" type="text/css" href="theme/default/css/default.css"
 				id="theme"/>
-		<link rel="stylesheet" type="text/css" href="styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="styles/style.css"/>
 		<title>
 			CUSA Cliff Effect
 		</title>
-
+		<!--temporary style in head for moving inline styles up-->
+		<style>
+			#header-img {
+				float: left;
+				display: inline;
+				padding-top: 1%;
+			}
+			.header-text {
+				text-align: center;
+				float: right;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -25,14 +36,13 @@
 		<div id="MainDIV" class="centered">
 
 			<!-- START HEADER -->
-			<div style="float: left;">
-				<img alt="Circles USA" id="cusalogo" src="images/circles-usa-new.png" style="display: inline;"/>
+			<div id="header-img">
+				<img alt="Circles USA" id="cusalogo" src="images/circles-usa-new.png"/>
 			</div>
-			<div style="text-align: center; float: right;">
+			<div class="header-text">
 				<h2 class="h2">Cliff Effect Planning Tool</h2>
 			</div>
 			<div style="text-align: center; float: left; width: 100%;">
-
 				<hr class="org-hr">
 			</div>
 			<!-- END HEADER -->
