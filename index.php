@@ -1,7 +1,6 @@
 <?php
 require 'welcome.php';
 require_once 'config.php';
-require_once 'dump-errors.php';
 ?>
 
 
