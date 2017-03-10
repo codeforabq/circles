@@ -1,5 +1,5 @@
 /*******************************************************
-styles copied from welcome.php (same in all files per vince)
+styles copied from welcome.php, etc
  *******************************************************/
 .header {
 	overflow: hidden;
@@ -111,6 +111,7 @@ styles copied from welcome.php (same in all files per vince)
 	border-width: 3px;
 	color: rgb(242, 117, 34);
 }
+
 a.tooltip {
 	outline: none;
 }
