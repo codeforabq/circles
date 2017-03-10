@@ -1,5 +1,5 @@
 <?php
-include("../config/configuration.php")
+//include("../config/configuration.php")
 //Database Constants
 // PROGRAM_NAME
 // ATTACHMENTS_PATH
@@ -11,4 +11,11 @@ include("../config/configuration.php")
 // DB_NAME
 // DB_TYPE
 // SSL_PORT
+
+define('DB_HOST', '');
+define('DB_USER', '');
+define('DB_PASSWORD', '');
+define('DB_NAME', '');
+define('DEPLOY_MODE', 'Development'); // Should be one of Production, Staging, Development
+
 ?>
