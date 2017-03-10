@@ -8,6 +8,15 @@
 //$TotalEarnedIncome == CCIS_22
 //$TotalUnEarnedIncome == CCS_23-28
 
+// $CCIS_Medical_Adjustment_Amount
+// $CCIS_F30
+// $deduct_spousesupport_amount line 106
+// $CCIS_AlimonyPaid_Allowed line 108
+// $CCIS_AlimonyPaid_Allowed line 110
+// $people_count line 135
+// $CCIS_EligibPercent1 line 144
+// lines 193-196 most are undefined
+
 //LOOKUP MONTHLY MAXIMUM MEDICAL DEDUCTION FOR STATE
 $maxmed_sql = "SELECT income_adjust_childmedicalmax FROM state_data WHERE state_init=\"" . $cl_stateinits . "\";";
 $maxmed_result = $dbconn->query($maxmed_sql);
