@@ -683,38 +683,38 @@
                <hr class=\"org-hr\">
              </div><!-- ABOUT HOME HR --><div id=\"AboutHome\" style=\"opacity: 1; float:left; width: 100%;\">
         <div id=\"AboutHomeLabel\">";
-				if($ishomeless == "No") {
-					echo "
-          <h2 class=\"h2\" style=\"font-weight: normal; font-size: 20px;\">
-            About your home . . .
-          </h2>
-        </div>
-      </div>
-
-    <div id=\"cl_beds\" name=\"Beds\" style=\"opacity: 1; float:left; width: 100%;\">
-          <label class=\"form-els\">Bedrooms</label><br>
-          <select id=\"bedrooms\" name=\"bedrooms\" onchange=\"ShowUtilRentMort()\">
-            <option selected id=\"item9_0_option\" value=\"\">
-              Choose one
-            </option>
-            <option id=\"item9_1_option\" value=\"Efficiency/Studio\">
-              Efficiency/Studio
-            </option>
-            <option id=\"item9_2_option\" value=\"1\">
-              1
-            </option>
-            <option id=\"item9_3_option\" value=\"2\">
-              2
-            </option>
-            <option id=\"item9_4_option\" value=\"3\">
-              3
-            </option>
-            <option id=\"item9_5_option\" value=\"4\">
-              4
-            </option>
-          </select><br><br>
-        </div>";
-				}
+//				if($ishomeless == "No") {
+//					echo "
+//          <h2 class=\"h2\" style=\"font-weight: normal; font-size: 20px;\">
+//            About your home . . .
+//          </h2>
+//        </div>
+//      </div>
+//
+//    <div id=\"cl_beds\" name=\"Beds\" style=\"opacity: 1; float:left; width: 100%;\">
+//          <label class=\"form-els\">Bedrooms</label><br>
+//          <select id=\"bedrooms\" name=\"bedrooms\" onchange=\"ShowUtilRentMort()\">
+//            <option selected id=\"item9_0_option\" value=\"\">
+//              Choose one
+//            </option>
+//            <option id=\"item9_1_option\" value=\"Efficiency/Studio\">
+//              Efficiency/Studio
+//            </option>
+//            <option id=\"item9_2_option\" value=\"1\">
+//              1
+//            </option>
+//            <option id=\"item9_3_option\" value=\"2\">
+//              2
+//            </option>
+//            <option id=\"item9_4_option\" value=\"3\">
+//              3
+//            </option>
+//            <option id=\"item9_5_option\" value=\"4\">
+//              4
+//            </option>
+//          </select><br><br>
+//        </div>";
+//				}
 			}
 			?>
 			<div id="cl_utilsmortrent" name="Utilities+Rent/Mort" style="opacity: 1; float:left; width: 100%;">
