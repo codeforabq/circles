@@ -42,21 +42,21 @@ echo "<tr><td>Adjusted Value of Assets:</td><td>" . number_format($adjusted_asse
 echo "<tr><td>Resource Limit Amount:</td><td>" . number_format($resource_limit_amount) . "</td></tr>";
 echo "<tr><td>First Adult Deduction:</td><td>" . number_format($first_adult_deduct) . "</td></tr>";
 echo "<tr><td>Second Adult Deduction:</td><td>" . number_format($second_adult_deduct) . "</td></tr>";
-echo "<tr><td>Adults with Parttime Work:</td><td>" . number_format($cl_adults_PT) . "</td></tr>";
-echo "<tr><td>Adults with Fulltime Work:</td><td>" . number_format($cl_adults_FT) . "</td></tr>";
+echo "<tr><td>Adults with Part-time Work:</td><td>" . number_format($cl_adults_PT) . "</td></tr>";
+echo "<tr><td>Adults with Full-time Work:</td><td>" . number_format($cl_adults_FT) . "</td></tr>";
 echo "<tr><td>Childcare Paid:</td><td>" . number_format($ChildcareAmount) . "</td></tr>";
-echo "<tr><td>Adults Fulltime Work Childcare Under 2 Deduct Amount:</td><td>" . number_format($deductFT_childcareunder2_amount) . "</td></tr>";
-echo "<tr><td>Adults Fulltime Work Childcare 2 and Over Deduct Amount:</td><td>" . number_format($deductFT_childcareover2_amount) . "</td></tr>";
+echo "<tr><td>Adults Full-time Work Childcare Under 2 Deduct Amount:</td><td>" . number_format($deductFT_childcareunder2_amount) . "</td></tr>";
+echo "<tr><td>Adults Full-time Work Childcare 2 and Over Deduct Amount:</td><td>" . number_format($deductFT_childcareover2_amount) . "</td></tr>";
 echo "<tr><td>Children 2 and Over:</td><td>" . number_format($children_over2) . "</td></tr>";
 echo "<tr><td>Children Under 2:</td><td>" . number_format($children_under2) . "</td></tr>";
-echo "<tr><td>Childcare Fulltime Deduction:</td><td>" . number_format($childcare_FTmax_deduction) . "</td></tr>";
+echo "<tr><td>Childcare Full-time Deduction:</td><td>" . number_format($childcare_FTmax_deduction) . "</td></tr>";
 if(isset($deductPT_childcareunder2_amount)) {
-	echo "<tr><td>Adults Parttime Work Childcare Under 2 Deduct Amount:</td><td>" . number_format($deductPT_childcareunder2_amount) . "</td></tr>";
+	echo "<tr><td>Adults Part-time Work Childcare Under 2 Deduct Amount:</td><td>" . number_format($deductPT_childcareunder2_amount) . "</td></tr>";
 }
 if(isset($deductPT_childcareover2_amount)) {
-	echo "<tr><td>Adults Parttime Work Childcare 2 and Over Deduct Amount:</td><td>" . number_format($deductPT_childcareover2_amount) . "</td></tr>";
+	echo "<tr><td>Adults Part-time Work Childcare 2 and Over Deduct Amount:</td><td>" . number_format($deductPT_childcareover2_amount) . "</td></tr>";
 }
-echo "<tr><td>Childcare Parttime Deduction:</td><td>" . number_format($childcare_PTmax_deduction) . "</td></tr>";
+echo "<tr><td>Childcare Part-time Deduction:</td><td>" . number_format($childcare_PTmax_deduction) . "</td></tr>";
 echo "<tr><td>Total Income:</td><td>" . number_format($TotalIncome) . "</td></tr>";
 echo "<tr><td>Maximum Childcare Deduction:</td><td>" . number_format($childcare_max_deduction) . "</td></tr>";
 echo "<tr><td>Earned Income Disregard:</td><td>" . number_format($earned_income_disregard_amount) . "</td></tr>";
