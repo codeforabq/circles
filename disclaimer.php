@@ -11,8 +11,7 @@
 		<script type="text/javascript" src="common/js/form_init.js" data-name=""
 				  id="form_init_script">
 		</script>
-		<link rel="stylesheet" type="text/css" href="theme/default/css/default.css"
-				id="theme"/>
+		<link rel="stylesheet" type="text/css" href="theme/default/css/default.css" id="theme"/>
 		<link rel="stylesheet" type="text/css" href="styles/style.css"/>
 		<title>
 			CUSA Cliff Effect
