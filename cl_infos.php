@@ -4,6 +4,13 @@
 	include("config.php");
 
 	require_once('functions.php');
+	if ('Production' != constant('DEPLOY_MODE')) {
+		echo '<h3>Site is running in ' . constant('DEPLOY_MODE') . ': all warnings and errors will be displayed!</h3>';
+		echo "<pre>";
+		require 'dump-errors.php';
+		echo "</pre>";
+	}
+
 	$whoisdis = $_SERVER['REMOTE_USER'];
 
 	?>

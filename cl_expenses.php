@@ -1,6 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
+	require_once 'config.php';
+	if ('Production' != constant('DEPLOY_MODE')) {
+		echo '<h3>Site is running in ' . constant('DEPLOY_MODE') . ': all warnings and errors will be displayed!</h3>';
+		echo "<pre>";
+		require 'dump-errors.php';
+		echo "</pre>";
+	}
 
 	require_once('functions.php');
 

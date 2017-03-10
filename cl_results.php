@@ -2,6 +2,12 @@
 <html>
 	<?php
 	include("config.php");
+	if ('Production' != constant('DEPLOY_MODE')) {
+		echo '<h3>Site is running in ' . constant('DEPLOY_MODE') . ': all warnings and errors will be displayed!</h3>';
+		echo "<pre>";
+		require 'dump-errors.php';
+		echo "</pre>";
+	}
 
 	require_once('functions.php');
 	LogPostValuesToLog($_POST['this_log'], 'cl_income');
@@ -255,9 +261,6 @@
 					Children - <?php echo "$cl_city, $cl_county, $cl_state"; ?>
 
 					<?php
-
-
-
 
 					?>
 				</p>
