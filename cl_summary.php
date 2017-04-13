@@ -30,11 +30,36 @@
 	LogPostValuesToLog($_POST['this_log'], 'cl_income');
 
 	?>
-	<h1>Summary</h1>
-	<p>Here's all the data you've provided:
-	<pre>
-		<?php echo $json; ?>
-	</pre>
-	<p><a href="?download=1">Click here to download all the data you've provided for offline use.</a></p>
-	<p><a href="javascript:GoResults();">Go to the results page.</a></p>
+
+	<head>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			/**
+			 * @brief Go to the results (cl_results.php) page
+			 */
+			function GoResults() {
+				$f = $('#cl_summary_form');
+				$f.submit();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Summary</h1>
+		<p>Here's all the data you've provided:
+		<pre>
+			<?php echo $json; ?>
+		</pre>
+		<p><a href="?download=1">Click here to download all the data you've provided for offline use.</a></p>
+		<p><a href="javascript:GoResults();">Go to the results page.</a></p>
+
+		<!-- As a hack, print everything from cl_input back out as hidden form entries; this will
+		     work w/ cl_results which expects everything to come from HTTP POST -->
+		<form id="cl_summary_form" enctype="multipart/form-data" method="POST" action="cl_results.php">
+		<?php
+			foreach($cl_input as $key => $value) {
+				echo "<input type='hidden' id='$key' name='$key' value='$value'>\n";
+			}
+		?>
+		</form>
+	</body>
 </html>
