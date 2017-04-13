@@ -46,9 +46,16 @@
 	<body>
 		<h1>Summary</h1>
 		<p>Here's all the data you've provided:
-		<pre>
-			<?php echo $json; ?>
-		</pre>
+		<?php
+		function cl_input_print($cl_input) {
+			echo "<table>";
+			foreach($cl_input as $key => $value) {
+				echo "<tr><th>$key</th><td>$value</td></tr>";
+			}
+			echo "</table>";
+		}
+		cl_input_print($cl_input);
+		?>
 		<p><a href="?download=1">Click here to download all the data you've provided for offline use.</a></p>
 		<p><a href="javascript:GoResults();">Go to the results page.</a></p>
 
