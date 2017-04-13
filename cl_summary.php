@@ -19,7 +19,11 @@
 	}
 
 	?>
+	<h1>Summary</h1>
+	<p>Here's all the data you've provided:
 	<pre>
-	<?php var_dump($cl_input); ?>
-
+		<?php var_dump($cl_input); ?>
+	</pre>
+	<p><a href="">Click here to download all the data you've provided for offline use.</a></p>
+	<p><a href="javascript:GoResults();">Go to the results page.</a></p>
 </html>
