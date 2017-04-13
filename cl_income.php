@@ -279,7 +279,7 @@
 	<body>
 		<!-- BEGIN OUTSIDE FORM -->
 		<div id="MainDIV" class="centered">
-			<form id="cl_income_form" enctype="multipart/form-data" method="POST" action="cl_results.php"
+			<form id="cl_income_form" enctype="multipart/form-data" method="POST" action="cl_summary.php"
 					novalidate="novalidate" style="padding: 10px;" autocomplete="off">
 				<!-- START HEADER -->
 				<div style="float: left;">
