@@ -112,6 +112,7 @@ if($_GET['download'] == 1) {
 					"SchoolLoanAmount" => "Student Loan Payment(s)",
 					"CreditCardAmount" => "Credit Card Payment(s)",
 					"OtherLoansAmount" => "Other Loan Payments",
+					"OtherDebtAmount" => "Other Debt Payments",
 					"TotalDebt" => "Total Debt Payments",
 					"KitchenAmount" => "Kitchen Needs Budget",
 					"BathroomAmount" => "Bathroom Needs Budget",
