@@ -47,12 +47,14 @@ if($_GET['download'] == 1) {
 		<h1>Summary</h1>
 		<p>Here's all the data you've provided:
 			<?php
-			//this is a summary table of all values entered thus far
-			// @todo human-readable key values, utilities SU value look-up (look-up table)
+			/**this is a summary table of all values entered thus far
+			* with a look-up table to print human-readable key names
+			* @todo change the following variables to correct names:
+			* "EIupemp" => "NOT SURE WHAT THIS MEANS!",
+			* "EIupPart" => "NOT SURE ABOUT THIS EITHER!",
+			* "IncomeUp" => "IDK!", **/
 			function cl_input_print($cl_input) {
 				$human_readable_names = array(
-					"cl_city" => "City",
-					"cl_state" => "State",
 					"GrossIncomeAmount" => "Gross Income",
 					"NetBusinessAmount" => "Net Business Income",
 					"ArmedForcesAmount" => "Armed Forces Income",
@@ -78,6 +80,9 @@ if($_GET['download'] == 1) {
 					"EVallCountable" => "Estimated Value of Countable Possessions",
 					"TotalHouseholdAssets" => "Total Value of Household Assets",
 					"Butt_Section8" => "Section 8 Help",
+					"EIupemp" => "NOT SURE WHAT THIS MEANS!",
+					"EIupPart" => "NOT SURE ABOUT THIS EITHER!",
+					"IncomeUp" => "IDK!",
 					"MortgageRentAmount" => "Mortgage or Rent Payment",
 					"InsuranceNotInc" => "Additional Home Insurance Payment",
 					"TaxesNotInc" => "Additional Home Tax Payment",
@@ -134,7 +139,49 @@ if($_GET['download'] == 1) {
 					"MedicalElderlyAmount" => "Medical Expenses for Elderly",
 					"OtherDependentAmount" => "Other Dependent Expenses",
 					"TotalDependentExpense" => "Total Dependent Expenses",
-
+					"LaundryAmount" => "Laundry Expenses",
+					"ToiletriesAmount" => "Toiletries Expenses",
+					"HaircutsAmount" => "Haircut Expenses",
+					"OtherPersonalAmount" => "Other Personal Expenses",
+					"TotalPersonalCare" => "Total Personal Care Expenses",
+					"AdultClothesAmount" => "Adult Clothing Budget",
+					"ChildClothesAmount" => "Child Clothing Budget",
+					"TotalClothing" => "Total Clothing Budget",
+					"PetFoodAmount" => "Pet Food Expenses",
+					"PetHealthAmount" => "Pet Health Expenses",
+					"PetOtherAmount" => "Other Pet Expenses",
+					"TotalPets" => "Total Pet Expenses",
+					"BdayAnnivAmount" => "Gift Budget",
+					"DogmaAmount" => "Religious Donations",
+					"FundraisersAmount" => "Fundraiser Donations",
+					"TotalGifts" => "Total Gift Expenses",
+					"FurnitureAmount" => "Savings Toward Furniture",
+					"AppliancesAmount" => "Savings Toward Appliances",
+					"TripsAmount" => "Savings Toward Travel",
+					"OtherSavingsAmount" => "Other Savings",
+					"TotalSavings" => "Total Savings",
+					"cl_city" => "City",
+					"cl_state" => "State",
+					"cl_county" => "County",
+					"cl_stateinits" => "State Initials",
+					"bedrooms" => "Number of Bedrooms",
+					"cl_utilities" => "Utilities",
+					"twentyone_or_older_check" => "Are there household members over 21?",
+					"cl_adults" => "Number of Adults",
+					"twentyone_or_older_PTcheck" => "Do any adults work part time?",
+					"twentyone_or_older_FTcheck" => "Do any adults work full time?",
+					"cl_adults_PT" => "Number of adults working part time",
+					"cl_adults_FT" => "Number of adults working full time",
+					"twentyone_or_older_Expcheck" => "Do any of the adults have work expenses?",
+					"WorkExpenseAmount" => "Work-related Expenses",
+					"thirteen_to_twenty_check" => "Are any household members between 13 and 20 years old?",
+					"less_than_thirteen_check" => "Are any household members less than 13 years old?",
+					"FTCollegeStudents_check" => "Are any household members full-time college stuents?",
+					"cl_family_pregnancy_check" => "Are any household members pregnant?",
+					"cl_family_stepparent_check" => "Are any household members step-parents?",
+					"cl_family_All_onBenefits_check" => "Are all members of the household  receiving benefits?",
+					"cl_family_over60_check" => "Are any household members over 60?",
+					"this_log" => "Log File Information"
 				);
 				echo "<table>";
 				foreach($cl_input as $key => $value) {
