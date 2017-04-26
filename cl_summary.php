@@ -186,7 +186,7 @@ if($_GET['download'] == 1) {
 				);
 				echo "<table>";
 				foreach($cl_input as $key => $value) {
-					echo "<tr><th>$human_readable_names[$key] ($key)</th><td>$value</td></tr>";
+					echo "<tr><th>$human_readable_names[$key]</th> <td>($key)</td><td>$value</td></tr>";
 				}
 				echo "</table>";
 			}
