@@ -8,7 +8,7 @@ foreach($_POST as $key => $value) {
 
 $json = json_encode($cl_input);
 
-if($_GET['download'] == 1) {
+if(1 == 2) {
 	header('Content-disposition: attachment; filename=test.json');
 	header('Content-type: application/json');
 	echo $json;

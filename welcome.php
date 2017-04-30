@@ -171,6 +171,9 @@
 					Continue ->
 				</button>
 			</div>
+			<div>
+				<button onclick="location.href='cl_summary.php'">Load JSON</button>
+			</div>
 			<!-- ALWAYS KEEP NEXT DIV AT THE VERY BOTTOM! This makes sure that the blue border stays bigger than the content. -->
 			<div style="clear: both;">&nbsp;</div>
 		</div>
