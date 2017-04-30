@@ -11,6 +11,50 @@
 		<script type="text/javascript" src="common/js/form_init.js" data-name=""
 				  id="form_init_script">
 		</script>
+
+		<script>
+		'use strict';
+
+		function LoadPreviousSession() {
+			if (typeof(window.FileReader) !== 'function') {
+				window.alert("window.FileReader API not supported on this browser, sorry. You can't load a previous session");
+				return;
+			}
+
+			var input = document.getElementById('fileinput');
+			if (!input.files[0]) {
+				window.alert("Please select a previous session to load");
+				return;
+			}
+
+			var filename = input.files[0];
+			var fr = new FileReader();
+
+			var json;
+			fr.onload = function(e) {
+				var raw_data = e.target.result;
+				json = JSON.parse(raw_data);
+				console.dir(json);
+
+				var form = document.createElement("form");
+				form.method = 'POST';
+				form.action = 'cl_summary.php';
+
+				for (var key in json) {
+					var e = document.createElement('input');
+					e.name= key;
+					e.value= json[key];
+					form.appendChild(e);
+				}
+
+				document.body.appendChild(form);
+				form.submit();
+			}
+
+			fr.readAsText(filename);
+		}
+		</script>
+
 		<link rel="stylesheet" type="text/css" href="theme/default/css/default.css"
 				id="theme"/>
 		<title>
@@ -165,14 +209,17 @@
 				access.<br><br>
 			</div>
 
-			<div style="float: left; width=100%; padding-left: 44%;">
-				<button type="reset" onclick="location.href='disclaimer.php'"
-						  style="border: none; color: white; padding: 7px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 15px; font-weight: bold; background-color: rgb(0, 163, 222); font-family: Helvetica, Arial; background-image: none;">
-					Continue ->
-				</button>
-			</div>
 			<div>
-				<button onclick="location.href='cl_summary.php'">Load JSON</button>
+				<h2>Start a new session</h2>
+				<button type="reset" onclick="location.href='disclaimer.php'">Continue -></button>
+			</div>
+
+			<div>
+				<h2>Load a previous session</h2>
+				<form enctype="multiport/-data" method="post">
+					<input type="file" id="fileinput">
+					<input type="button" value="Load previous session (JSON file)" onclick="LoadPreviousSession();">
+				</form>
 			</div>
 			<!-- ALWAYS KEEP NEXT DIV AT THE VERY BOTTOM! This makes sure that the blue border stays bigger than the content. -->
 			<div style="clear: both;">&nbsp;</div>

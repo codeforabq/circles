@@ -8,7 +8,7 @@ foreach($_POST as $key => $value) {
 
 $json = json_encode($cl_input);
 
-if(1 == 2) {
+if($_GET['download'] == 1) {
 	header('Content-disposition: attachment; filename=test.json');
 	header('Content-type: application/json');
 	echo $json;
@@ -40,6 +40,12 @@ if(1 == 2) {
 			function GoResults() {
 				$f = $('#cl_summary_form');
 				$f.submit();
+			}
+
+			function DownloadResults() {
+				var form = document.getElementById('cl_summary_form');
+				form.action = 'cl_summary.php?download=1';
+				form.submit();
 			}
 		</script>
 	</head>
@@ -192,7 +198,7 @@ if(1 == 2) {
 			}
 			cl_input_print($cl_input);
 			?>
-		<p><a href="?download=1">Click here to download all the data you've provided for offline use.</a></p>
+		<p><a href="javascript:DownloadResults();">Click here to download all the data you've provided for offline use.</a></p>
 		<p><a href="javascript:GoResults();">Go to the results page.</a></p>
 
 		<!-- As a hack, print everything from cl_input back out as hidden form entries; this will
