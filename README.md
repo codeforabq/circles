@@ -7,6 +7,11 @@ It's a complex product tailored for non-profits, based on voter management syste
 
 More information for developers is available at [EveryAction's Developer Portal](http://developers.everyaction.com/).
 
+Interesting stuff:
+
+ * Python example: https://github.com/leosquared/actionkit_van_sync/blob/6df9a87a9f8ae4e2225a77555101ce4282dc02c7/api_test.py
+ * Ruby wrapper: https://github.com/christopherstyles/ngp_van
+
 # Copyright information
 
 Copyright © 2016-2017 Vince Gonzales. All rights reserved.
