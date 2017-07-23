@@ -15,6 +15,7 @@ var default_request_options = {
 };
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 
 app.listen(8080);
@@ -44,3 +45,18 @@ app.get('/:van_id', function(req, express_response) {
 		//express_response.json(JSON.parse(body));
 	});*/
 });
+
+//only works when post header incl content-type: application/json
+app.use(bodyParser.json());
+
+app.post('/:van_id', function (req, res) {
+  let van_id = req.params.van_id; // Use 101166097 as a real ID
+  //@todo loop to check if number.isInteger(van_id);
+  let van_id_url = `https://api.securevan.com/v4/people/${van_id}`
+
+  let request_params = Object.assign({}, default_request_options, {url: van_id_url});
+
+//log request body
+  console.log(req.body);
+  res.send(req.body);
+ });
