@@ -1,0 +1,385 @@
+<!-- HTML Form to Input Monthly Expenses
+     inputs, ids and class names same as "../cl_expenses.php" -->
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img alt="Circles USA" id="cusalogo" src="../images/circles-usa-new.png">
+      </div>
+      <div>
+        <h2>Cliff Effect Planning Tool</h2>
+      </div>
+      <div>
+        <p>Circle Leader Monthly Expenses</p>
+        <hr />
+      </div>
+    </header>
+    <form action="">
+      <fieldset class="HousingExpenses">
+        <legend>Housing Expenses</legend>
+        <p>
+          <label for="MortgageRentAmount"> Monthly Mortgage or Rent: </label>
+          <input type="text" id="MortgageRentAmount" name="MortgageRentAmount">
+        </p>
+        <p>
+          <label for="InsuranceNotInc">Insurance not in Mortgage or Rent: </label>
+          <input type="text" id="InsuranceNotInc" name="InsuranceNotInc">
+        </p>
+        <p>
+          <label for="TaxesNotInc">Taxes not in Mortgage or Rent: </label>
+          <input type="text" id="TaxesNotInc" name="TaxesNotInc">
+        </p>
+        <p>
+          <label for="GasAmount">Gas:</label>
+          <input type="text" id="GasAmount" name="GasAmount">
+        </p>
+        <p>
+          <label for="ElectricAmount">Electric:</label>
+          <input type="text" id="ElectricAmount" name="ElectricAmount">
+        </p>
+        <p>
+          <label for="WaterAmount">Water:</label>
+          <input type="text" id="WaterAmount" name="WaterAmount">
+        </p>
+        <p>
+          <label for="SewageAmount">Sewage:</label>
+          <input type="text" id="SewageAmount" name="SewageAmount">
+        </p>
+        <p>
+          <label for="TrashAmount">Trash:</label>
+          <input type="text" id="TrashAmount" name="TrashAmount">
+        </p>
+        <p>
+          <label for="PhoneAmount">Phone:</label>
+          <input type="text" id="PhoneAmount" name="PhoneAmount">
+        </p>
+        <p>
+          <label for="InternetAmount">Internet:</label>
+          <input type="text" id="InternetAmount" name="InternetAmount">
+        </p>
+        <p>
+          <label for="CableAmount">Cable:</label>
+          <input type="text" id="CableAmount" name="CableAmount">
+        </p>
+        <p id="TotalHousing" class="fieldset-total">Total Housing Expenses = </p>
+        <button id="nextHousing" type="button" class="nextbutton" onclick="ShowFoodExpenses();">
+          Next
+        </button>
+      </fieldset> <!--HousingExpenses-->
+      <fieldset class="FoodExpenses">
+        <legend>Food Expenses</legend>
+        <p>
+          <label for="GroceriesAmount">Groceries:</label>
+          <input type="text" id="GroceriesAmount" name="GroceriesAmount">
+        </p>
+        <p>
+          <label for="SchoolLunchesAmount">School Lunches:</label>
+          <input type="text" id="SchoolLunchesAmount" name="SchoolLunchesAmount">
+        </p>
+        <p>
+          <label for="EatingOutAmount">Eating Out:</label>
+          <input type="text" id="EatingOutAmount" name="EatingOutAmount">
+        </p>
+        <p id="TotalFood" class="fieldset-total">Total Food Expenses = </p>
+        <button id="nextFood" type="button" class="nextbutton" onclick="ShowTransportExpenses();">
+          Next
+        </button>
+      </fieldset> <!--FoodExpenses-->
+      <fieldset class="TransportExpenses">
+        <legend>Transportation</legend>
+        <p>
+          <label for="CarPaymentAmount">Car Payment:</label>
+          <input type="text" id="CarPaymentAmount" name="CarPaymentAmount">
+        </p>
+        <p>
+          <label for="CarInsuranceAmount">Car Insurance:</label>
+          <input type="text" id="CarInsuranceAmount" name="CarInsuranceAmount">
+        </p>
+        <p>
+          <label for="GasolineAmount">Gasoline:</label>
+          <input type="text" id="GasolineAmount" name="GasolineAmount">
+        </p>
+        <p>
+          <label for="MaintainRepairAmount">Maintenance And Repairs:</label>
+          <input type="text" id="MaintainRepairAmount" name="MaintainRepairAmount">
+        </p>
+        <p>
+          <label for="BusCabAmount">Bus, Cab or Other Transportation:</label>
+          <input type="text" id="BusCabAmount" name="BusCabAmount">
+        </p>
+        <p id="TotalTransport" class="fieldset-total">Total Transportation Expenses = </p>
+        <button id="nextTransport" type="button" class="nextbutton"
+              onclick="ShowEntertainExpenses();">Next
+        </button>
+      </fieldset> <!-- TransportExpenses -->
+      <fieldset class="EntertainExpenses">
+        <legend>Entertainment Expenses</legend>
+        <p>
+          <label for="MovieDateAmount">Movie or Date Night:</label>
+          <input type="text" id="MovieDateAmount" name="MovieDateAmount">
+        </p>
+        <p>
+          <label for="EntertainOther1Amount">Other:</label>
+          <input type="text" id="EntertainOther1Amount" name="EntertainOther1Amount">
+        </p>
+        <p>
+          <label for="EntertainOther2Amount">Other:</label>
+          <input type="text" id="EntertainOther2Amount" name="EntertainOther2Amount">
+        </p>
+        <p>
+          <label for="EntertainOther3Amount">Other:</label>
+          <input type="text" id="EntertainOther3Amount" name="EntertainOther3Amount">
+        </p>
+        <p id="TotalEntertain" class="fieldset-total">Total Entertainment Expenses = </p>
+        <button id="nextEntertain" type="button" class="nextbutton" onclick="ShowDebtExpenses();">
+          Next
+        </button>
+      </fieldset> <!-- EntertainExpenses -->
+      <fieldset class="DebtExpenses">
+        <legend>Debt Expenses</legend>
+        <p>
+          <label for="SchoolLoanAmount">School Loans:</label>
+          <input type="text" id="SchoolLoanAmount" name="SchoolLoanAmount">
+        </p>
+        <p>
+          <label for="CreditCardAmount">Credit Card Payments:</label>
+          <input type="text" id="CreditCardAmount" name="CreditCardAmount">
+        </p>
+        <p>
+          <label for="OtherLoansAmount">Other Loan Payments:</label>
+          <input type="text" id="OtherLoansAmount" name="OtherLoansAmount">
+        </p>
+        <p>
+          <label for="OtherDebtAmount">Other Debt Payments:</label>
+          <input type="text" id="OtherDebtAmount" name="OtherDebtAmount">
+        </p>
+        <p id="TotalDebt" class="fieldset-total">Total Debt Payments = </p>
+        <button id="nextDebt" type="button" class="nextbutton" onclick="ShowHouseholdExpenses();">
+          Next
+        </button>
+      </fieldset> <!--DebtExpenses -->
+      <fieldset class="HouseholdExpenses">
+        <legend>Household Expenses</legend>
+        <p>
+          <label for="KitchenAmount">Kitchen Items:</label>
+          <input type="text" id="KitchenAmount" name="KitchenAmount">
+        </p>
+        <p>
+          <label for="BathroomAmount">Bathroom Items:</label>
+          <input type="text" id="BathroomAmount" name="BathroomAmount">
+        </p>
+        <p>
+          <label for="BedroomAmount">Bedroom Items:</label>
+          <input type="text" id="BedroomAmount" name="BedroomAmount">
+        </p>
+        <p>
+          <label for="OtherRoomsAmount">Other Room Items:</label>
+          <input type="text" id="OtherRoomsAmount" name="OtherRoomsAmount">
+        </p>
+        <p id="TotalHousehold" class="fieldset-total">Total Household Expenses = </p>
+        <button id="nextHousehold" type="button" class="nextbutton"
+              onclick="ShowOtherExpenses();">Next
+        </button>
+      </fieldset> <!--HouseholdExpenses-->
+      <fieldset class="OtherExpenses">
+        <legend>Other Expenses</legend>
+        <p>
+          <label for="JunkFoodAmount">Junk Food on the Run:</label>
+          <input type="text" id="JunkFoodAmount" name="JunkFoodAmount">
+        </p>
+        <p>
+          <label for="SchoolExpenseAmount">School Expenses (books, tuition, etc):</label>
+          <input type="text" id="SchoolExpenseAmount" name="SchoolExpenseAmount">
+        </p>
+        <p>
+          <label for="OtherTaxesAmount">Other Taxes and Fees:</label>
+          <input type="text" id="OtherTaxesAmount" name="OtherTaxesAmount">
+        </p>
+        <p>
+          <label for="OtherExpense1Amount">Other:</label>
+          <input type="text" id="OtherExpense1Amount" name="OtherExpense1Amount">
+        </p>
+        <p>
+          <label for="OtherExpense2Amount">Other:</label>
+          <input type="text" id="OtherExpense2Amount" name="OtherExpense2Amount">
+        </p>
+        <p>
+          <label for="OtherExpense3Amount">Other:</label>
+          <input type="text" id="OtherExpense3Amount" name="OtherExpense3Amount">
+        </p>
+        <p id="TotalOtherExpenses" class="fieldset-total">Total Other Expenses =</p>
+        <button id="nextOther" type="button" class="nextbutton"
+              onclick="ShowHealthcareExpenses();">Next
+        </button>
+      </fieldset> <!-- OtherExpenses -->
+      <fieldset class="HealthcareExpenses">
+        <legend>Healthcare Expenses</legend>
+        <p>
+          <label for="HealthInsuranceAmount">Health Insurance Payments:</label>
+          <input type="text" id="HealthInsuranceAmount" name="HealthInsuranceAmount">
+        </p>
+        <p>
+          <label for="PrescriptionsAmount">Prescription Medicines:</label>
+          <input type="text" id="PrescriptionsAmount" name="PrescriptionsAmount">
+        </p>
+        <p>
+          <label for="DoctorAmount">Doctor Bills or Co-pays:</label>
+          <input type="text" id="DoctorAmount" name="DoctorAmount">
+        </p>
+        <p>
+          <label for="DentistAmount">Dentist Bills or Co-pays:</label>
+          <input type="text" id="DentistAmount" name="DentistAmount">
+        </p>
+        <p>
+          <label for="HealthOtherAmount">Other Healthcare Costs:</label>
+          <input type="text" id="HealthOtherAmount" name="HealthOtherAmount">
+        </p>
+        <p id="TotalHealthcare" class="fieldset-total">Total Healthcare Expenses =</p>
+        <button id="nextHealthcare" type="button" class="nextbutton"
+              onclick="ShowDependentCareExpenses();">Next
+        </button>
+      </fieldset><!-- HealthcareExpenses -->
+      <fieldset class="DependentCareExpenses">
+        <legend>Dependent Care Expenses</legend>
+        <p>
+          <label for="ChildSupportPaidAmount">Child Support You Pay:</label>
+          <input type="text" id="ChildSupportPaidAmount" name="ChildSupportPaidAmount">
+        </p>
+        <p>
+          <label for="SpouseSupportPaidAmount">Alimony or Spousal Support You Pay:</label>
+          <input type="text" id="SpouseSupportPaidAmount" name="SpouseSupportPaidAmount">
+        </p>
+        <p>
+          <label for="ChildcareAmount">Child or Day Care Fees per Month:</label>
+          <input type="text" id="ChildcareAmount" name="ChildcareAmount">
+        </p>
+        <p>
+          <label for="SchoolFeesPaidAmount">School Fees You Pay (Monthly Amount):</label>
+          <input type="text" id="SchoolFeesPaidAmount" name="SchoolFeesPaidAmount">
+        </p>
+        <p>
+          <label for="ExpenseDisabledAmount">Expense for Disabled to Work:</label>
+          <input type="text" id="ExpenseDisabledAmount" name="ExpenseDisabledAmount">
+        </p>
+        <p>
+          <label for="MedicalElderlyAmount">Medical Expenses for Elderly/Disabled:</label>
+          <input type="text" id="MedicalElderlyAmount" name="MedicalElderlyAmount">
+        </p>
+        <p>
+          <label for="OtherDependentAmount">Other Dependent Expenses:</label>
+          <input type="text" id="OtherDependentAmount" name="OtherDependentAmount">
+        </p>
+        <p id="TotalDependentExpense" class="fieldset-total">Total Dependent Expenses = </p>
+        <button id="nextDependentCare" type="button" class="nextbutton"
+              onclick="ShowPersonalCareExpenses();">Next
+        </button>
+      </fieldset><!-- DependentExpenses -->
+      <fieldset class="PersonalCareExpenses">
+        <legend>Personal Care Expenses</legend>
+        <p>
+          <label for="LaundryAmount">Laundry:</label>
+          <input type="text" id="LaundryAmount" name="LaundryAmount">
+        </p>
+        <p>
+          <label for="ToiletriesAmount">Toiletries:</label>
+          <input type="text" id="ToiletriesAmount" name="ToiletriesAmount">
+        </p>
+        <p>
+          <label for="HaircutsAmount">Haircuts:</label>
+          <input type="text" id="HaircutsAmount" name="HaircutsAmount">
+        </p>
+        <p>
+          <label for="OtherPersonalAmount">Other Personal Expenses:</label>
+          <input type="text" id="OtherPersonalAmount" name="OtherPersonalAmount">
+        </p>
+        <p id="TotalPersonalCare" class="fieldset-total">Total Personal Care Expenses = </p>
+        <button id="nextPersonalCare" type="button" class="nextbutton"
+              onclick="ShowClothingExpenses();">Next
+        </button>
+      </fieldset> <!--PersonalCareExpenses -->
+      <fieldset class="ClothingExpenses">
+        <legend>Clothing and Shoes Expenses</legend>
+        <p>
+          <label for="AdultClothesAmount">Adults:</label>
+          <input type="text" id="AdultClothesAmount" name="AdultClothesAmount">
+        </p>
+        <p>
+          <label for="ChildClothesAmount">Children:</label>
+          <input type="text" id="ChildClothesAmount" name="ChildClothesAmount">
+        </p>
+        <p id="TotalClothing" class="fieldset-total">Total Clothing Expenses =</p>
+        <button id="nextClothing" type="button" class="nextbutton"
+              onclick="ShowPetCareExpenses();">Next
+        </button>
+      </fieldset> <!-- ClothingExpenses-->
+      <fieldset class="PetCareExpenses">
+        <legend>Pet Care Expenses</legend>
+        <p>
+          <label for="PetFoodAmount">Pet Food:</label>
+          <input type="text" id="PetFoodAmount" name="PetFoodAmount">
+        </p>
+        <p>
+          <label for="PetHealthAmount">Shots, Vet Care, or Pet Medicines:</label>
+          <input type="text" id="PetHealthAmount" name="PetHealthAmount">
+        </p>
+        <p>
+          <label for="PetOtherAmount">Other Pet Expenses:</label>
+          <input type="text" id="PetOtherAmount" name="PetOtherAmount">
+        </p>
+        <p id="TotalPets" class="fieldset-total">Total Pet Expenses = </p>
+        <button id="nextPetCare" type="button" class="nextbutton" onclick="ShowGiftExpenses();">
+          Next
+        </button>
+      </fieldset> <!-- PetExpenses -->
+      <fieldset class="GiftExpenses">
+        <legend>Gifts</legend>
+        <p>
+          <label for="BdayAnnivAmount">Birthday or Anniversary Gifts:</label>
+          <input type="text" id="BdayAnnivAmount" name="BdayAnnivAmount">
+        </p>
+        <p>
+          <label for="DogmaAmount">Religious and Faith Organizations:</label>
+          <input type="text" id="DogmaAmount" name="DogmaAmount">
+        </p>
+        <p>
+          <label for="FundraisersAmount">Fundraisers:</label>
+          <input type="text" id="FundraisersAmount" name="FundraisersAmount">
+        </p>
+        <p id="TotalGifts" class="fieldset-total">Total Gift Expenses = </p>
+        <button id="nextGifts" type="button" class="nextbutton" onclick="ShowSavingLarge();">
+          Next
+        </button>
+      </fieldset><!-- GiftExpenses -->
+      <fieldset class="SaveLargeItemExpenses">
+        <legend>Savings for Large Items</legend>
+        <p>
+          <label for="FurnitureAmount">Furniture:</label>
+          <input type="text" id="FurnitureAmount" name="FurnitureAmount">
+        </p>
+        <p>
+          <label for="AppliancesAmount">Appliances:</label>
+          <input type="text" id="AppliancesAmount" name="AppliancesAmount">
+        </p>
+        <p>
+          <label for="TripsAmount">Vacations, Trips:</label>
+          <input type="text" id="TripsAmount" name="TripsAmount">
+        </p>
+        <p>
+          <label for="OtherSavingsAmount">Other Monthly Savings:</label>
+          <input type="text" id="OtherSavingsAmount" name="OtherSavingsAmount">
+        </p>
+        <p id="TotalSavings" class="fieldset-total">Total Savings Expenses =</p>
+        <button id="nextDone" type="button" class="nextbutton" onclick="ShowThatsAll();">Next
+        </button>
+      </fieldset><!--SaveLargeItemExpenses-->
+      <div id="TotalMonthlyExpenses">
+        <label for="TotalMonthly">Total Monthly Expenses = $</label>
+            <input id="TotalMonthly" name="TotalMonthlyExpenses" type="text" readonly>
+      </div>
+      <button type="submit" class="donebutton" onclick="">Continue to Income entry --></button>
+    </form>
+  </body>
+</html>
